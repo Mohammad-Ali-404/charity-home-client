@@ -2,9 +2,12 @@ import React from 'react';
 import logo from '../../../assets/logo/logo.png'
 import { Link } from 'react-router-dom';
 import { BsTelephone } from "react-icons/bs";
-import { AiFillFacebook, AiFillLinkedin, AiFillTwitterSquare, AiOutlineInstagram } from "react-icons/ai";
+import { FcFaq } from "react-icons/fc";
+import { AiFillFacebook, AiFillLinkedin, AiFillTwitterSquare, AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 import Container from '../Container/Container';
+import Marquee from 'react-fast-marquee';
 const Navbar = () => {
+    
     const navbar = 
         <><li><a>Home</a></li>
         <li><a>Causes</a></li>
@@ -17,9 +20,14 @@ const Navbar = () => {
                <Container>
                <div className='border-b-2 p-4 lg:flex lg:justify-between sm:col-auto '>
                     <div className='flex sm:col-auto'>
-                        <h1 className='border-r-2 px-2'>jagowelfare@gmail.com</h1>
+                        <h1 className='border-r-2 px-2 flex'><AiOutlineMail className='mt-1 text-xl mr-1'/>jagowelfare@gmail.com</h1>
                         <h1 className='flex border-r-2 px-2'> <BsTelephone className='text-xl mt-1'/> +12345565</h1>
-                        <h1 className='ml-4'>Faqs</h1>
+                        <h1 className='ml-4 flex'> <FcFaq className='mt-1 text-xl mr-1'/>Faqs</h1>
+                    </div>
+                    <div className='px-20'>
+                        <Marquee>
+                           <span className='bg-sky-400 text-white p-2 mr-4'>Promo</span> All information available in the news
+                        </Marquee>
                     </div>
                     <div className='flex gap-2 text-xl mr-32 sm:justify-items-center'>
                         <AiFillFacebook/>
