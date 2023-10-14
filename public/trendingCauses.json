@@ -1,33 +1,33 @@
  [
       {
-          "cause_id": 1,
+          "id": 1,
           "title": "Clean Water Initiative",
           "short_description": "Provide clean and safe drinking water to communities in need.",
           "category": "Food & Water",
           "donation_goal": "Goal: $15,000",
-          "image_url": "https://example.com/clean_water.jpg",
+          "image_url": "https://i.ibb.co/Kbsn7T6/1.jpg",
           "date": "2023-01-15"
       },
       {
-          "cause_id": 2,
+          "id": 2,
           "title": "Education for Underprivileged Children",
           "short_description": "Support the education of underprivileged children for a brighter future.",
           "category": "Education",
           "donation_goal": "Goal: $12,000",
-          "image_url": "https://example.com/education.jpg",
+          "image_url": "https://i.ibb.co/rH1Ktgz/2.jpg",
           "date": "2023-02-10"
       },
       {
-          "cause_id": 3,
+          "id": 3,
           "title": "Hunger Relief Program",
           "short_description": "Provide nutritious meals to families facing food insecurity.",
           "category": "Home and Shelter",
           "donation_goal": "Goal: $20,000",
-          "image_url": "https://example.com/hunger_relief.jpg",
+          "image_url": "https://i.ibb.co/vYh6HJJ/3.jpg",
           "date": "2023-03-22"
       },
       {
-          "cause_id": 4,
+          "id": 4,
           "title": "Environmental Conservation",
           "short_description": "Support efforts to protect natural habitats and combat climate change.",
           "category": "Health and Treatment",
@@ -36,7 +36,7 @@
           "date": "2023-04-18"
       },
       {
-          "cause_id": 5,
+          "id": 5,
           "title": "Medical Aid for Vulnerable Populations",
           "short_description": "Provide essential medical care to underserved communities.",
           "category": "Wildlife Conservation",
@@ -45,21 +45,12 @@
           "date": "2023-05-07"
       },
       {
-          "cause_id": 6,
+          "id": 6,
           "title": "Empowerment of Women and Girls",
           "short_description": "Promote gender equality and empower women and girls.",
           "category": "Another Category",
           "donation_goal": "Goal: $8,000",
           "image_url": "https://example.com/women_empowerment.jpg",
           "date": "2023-06-14"
-      },
-      {
-          "cause_id": 7,
-          "title": "Collect Fund for Drinking Water & Healthy Food",
-          "short_description": "Support access to drinking water and healthy food for communities.",
-          "category": "Food & Water",
-          "donation_goal": "Goal: $17,500",
-          "image_url": "https://example.com/drink_water_healthy_food.jpg",
-          "date": "2023-07-30"
       }
   ]
