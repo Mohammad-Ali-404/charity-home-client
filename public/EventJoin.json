@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "title": "Hope for All Charity Gala",
+      "description": "Join us for an evening of elegance and generosity as we raise funds for various charitable causes. Your support can make a significant difference in the lives of those in need.",
+      "location": "Grand Ballroom, Parkside Hotel",
+      "date": "12 Dec",
+      "time": "18:00 - 22:00"
+    },
+    {
+      "id": 2,
+      "title": "Children's Education Fundraiser",
+      "description": "Support quality education for underprivileged children. Join us for a fun-filled day of activities, games, and food. Your contribution can help these children build a brighter future.",
+      "location": "Central Park Pavilion",
+      "date": "11 Nov",
+      "time": "10:00 - 16:00"
+    },
+    {
+      "id": 3,
+      "title": "Community Food Drive",
+      "description": "Help us collect food items for families in need. Every contribution counts, and together, we can make a positive impact on our community.",
+      "location": "Local Community Center",
+      "date": "15 Aug",
+      "time": "09:00 - 14:00"
+    },
+    {
+      "id": 4,
+      "title": "Medical Supplies Drive",
+      "description": "Donate essential medical supplies to support healthcare facilities in underserved areas. Your contribution can save lives and make healthcare more accessible.",
+      "location": "City Hospital Parking Lot",
+      "date": "24 Dec",
+      "time": "11:00 - 15:00"
+    }
+  ]
+  

@@ -15,7 +15,7 @@ const HelpWithEducation = () => {
                         <div className="hero-overlay "></div>
                         <div className="hero-content ">
                             <div className="">
-                                <h1 className="mb-3 sm:mb-5 text-red-600 font-semibold text-2xl sm:text-5xl featured">Help With Featured Cause</h1>
+                                <h1 className="mb-3 sm:mb-5 text-red-600 font-semibold text-2xl sm:text-5xl title">Help With Featured Cause</h1>
                                 <h1 className='text-black text-2xl sm:text-5xl my-4 sm:my-7 font-bold font-serif'>Educate Children In 
                                     Rural Areas Our Priority</h1>
                                 <p className="mb-3 text-base sm:text-base w-auto sm:my-6 my-4">Ever since I was a little kid in primary school I’ve watched kids slip through the cracks and fall out of the education system due to poverty. That’s why education is our first priority.</p>

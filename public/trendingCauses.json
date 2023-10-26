@@ -32,7 +32,7 @@
           "short_description": "Support efforts to protect natural habitats and combat climate change.",
           "category": "Health and Treatment",
           "donation_goal": "Goal: $25,000",
-          "image_url": "https://example.com/environment.jpg",
+          "image_url": "https://i.ibb.co/tH4Jkq8/causes-4.png",
           "date": "2023-04-18"
       },
       {
@@ -41,7 +41,7 @@
           "short_description": "Provide essential medical care to underserved communities.",
           "category": "Wildlife Conservation",
           "donation_goal": "Goal: $30,000",
-          "image_url": "https://example.com/medical_aid.jpg",
+          "image_url": "https://i.ibb.co/YNxT3gt/causes-6.png",
           "date": "2023-05-07"
       },
       {
@@ -50,7 +50,7 @@
           "short_description": "Promote gender equality and empower women and girls.",
           "category": "Another Category",
           "donation_goal": "Goal: $8,000",
-          "image_url": "https://example.com/women_empowerment.jpg",
+          "image_url": "https://i.ibb.co/Gtv7yzm/causes-3.png",
           "date": "2023-06-14"
       }
   ]

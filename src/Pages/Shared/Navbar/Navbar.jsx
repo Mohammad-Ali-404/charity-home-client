@@ -9,17 +9,19 @@ import Marquee from 'react-fast-marquee';
 const Navbar = () => {
     
     const navbar = 
-        <><li><a>Home</a></li>
-        <li><a>Causes</a></li>
-        <li><a>News</a></li>
-        <li><a>Events</a></li>
-        <li><a>Contact</a></li></>
+        <>
+            <Link to='/'><li><a>Home</a></li></Link>
+            <Link to='causes'><li><a>Causes</a></li></Link>
+            <Link to='news'><li><a>News</a></li></Link>
+            <Link to='events'><li><a>Events</a></li></Link>
+            <Link to='contact'><li><a>Contact</a></li></Link>
+        </>
     
     return (
             <header className="bg-slate-100">
                <Container>
-               <div className='border-b-2 p-4 lg:flex lg:justify-between sm:col-auto '>
-                    <div className='flex sm:col-auto'>
+               <div className='border-b-2 p-4 hidden lg:flex lg:justify-between sm:col-auto '>
+                    <div className='flex flex-col md:flex-row'>
                         <Link><h1 className='border-r-2 px-2 flex hover:text-red-600 duration-300'><AiOutlineMail className='mt-1 text-xl mr-1'/>jagowelfare@gmail.com</h1></Link>
                         <Link><h1 className='flex border-r-2 px-2 hover:text-red-600 duration-300'> <BsTelephone className='text-xl mt-1'/> +12345565</h1></Link>
                         <Link><h1 className='ml-4 flex hover:text-red-600 duration-300'> <FcFaq className='mt-1 text-xl mr-1'/>Faqs</h1></Link>
@@ -54,8 +56,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-  <Link className="self-center px-4 sm:px-8 text-black py-2 sm:py-3 font-semibold hover:text-white bg-white rounded-xl shadow hover:bg-[#e03c33] transition-colors duration-500 hover:border-[#e03c33] border-[#e03c33] border mr-4">Donate Now</Link>
-</div>
+                        <Link className="self-center px-4 sm:px-8 text-black py-2 sm:py-3 font-semibold hover:text-white bg-white rounded-xl shadow hover:bg-[#e03c33] transition-colors duration-500 hover:border-[#e03c33] border-[#e03c33] border mr-4">Donate Now</Link>
+                    </div>
                     </div>
                </Container>
             </header>
