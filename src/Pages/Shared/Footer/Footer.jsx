@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '../Container/Container';
 import logo from '../../../assets/logo/logo.png'
 import { Link } from 'react-router-dom';
+import { AiFillFacebook, AiFillLinkedin, AiFillTwitterSquare, AiOutlineInstagram } from "react-icons/ai";
 const Footer = () => {
     return (
         <div className='bg-base-200 text-base-content'>
@@ -39,6 +40,15 @@ const Footer = () => {
                     </nav>
                 </footer>
             </Container>
+            <div className='flex p-5 justify-between bg-red-500 text-white w-full'>
+                <h1 className='sm:text-lg sm:px-12 pr-5 font-semibold'>Copyright © 2023 All Rights Reserved</h1>
+                <div className='flex gap-4 sm:text-2xl text-xl sm:px-48'>
+                    <Link><AiFillFacebook/></Link>
+                    <Link><AiFillTwitterSquare/></Link>
+                    <Link><AiOutlineInstagram/></Link>
+                    <Link><AiFillLinkedin/></Link>   
+                </div>
+            </div>
         </div>
     );
 };
