@@ -6,7 +6,7 @@ const PageTitle = ({ heading, subHeading }) => {
     return (
         <div className=" ">
             <div className="-mt-2">
-                <div className="bg-cover bg-center h-[500px] w-full" style={{backgroundImage: 'url(https://i.ibb.co/g3jz3YG/banner3.jpg)'}}>
+                <div className="bg-cover bg-center sm:h-[500px] w-full" style={{backgroundImage: 'url(https://i.ibb.co/g3jz3YG/banner3.jpg)'}}>
                     <div className=""></div>
                     <div className="sm:p-52 pt-60 hero-overlay opacity-90 px-10">
                         <h1 className='md:text-4xl  text-2xl font-bold text-white mb-4 bg-no-repeat' style={{backgroundImage: 'url(https://i.ibb.co/dWGJ3L2/yellow-banner.png)', backgroundSize: '100% 40%', backgroundPosition:'bottom', display: 'inline', lineHeight: '1', }}>

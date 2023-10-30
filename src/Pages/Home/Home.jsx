@@ -6,6 +6,7 @@ import TrendingCauses from './Home/TrendingCauses/TrendingCauses';
 import UpcomingEvents from './Home/UpcomingEvents/UpcomingEvents';
 import Donate from './Home/Donate/Donate';
 import SponsorsAndFund from './Home/SponsorsAndFund/SponsorsAndFund';
+import GetInTouch from './Home/GetInTouch/GetInTouch';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <UpcomingEvents/>
             <Donate/>
             <SponsorsAndFund/>
+            <GetInTouch/>
         </div>
     );
 };
