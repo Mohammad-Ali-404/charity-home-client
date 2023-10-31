@@ -28,7 +28,7 @@ const GetInTouch = () => {
                             <h1 className='sm:text-4xl text-3xl my-2 sm:w-4/5'>Provide financing support to <span className='bg-no-repeat' style={{ backgroundImage: 'url(https://i.ibb.co/dWGJ3L2/yellow-banner.png)', backgroundSize: '100% 40%', backgroundPosition: 'bottom', display: 'inline', lineHeight: '1', }}>help</span> individuals build livelihoods</h1>
                         </div>
                         <div className='sm:pl-0 pl-24 py-4'>
-                            <Link className='sm:pr-32'>
+                            <Link to='contact' className='sm:pr-32'>
                                 <button className='px-11 flex items-center py-4 rounded-xl text-white text-lg bg-red-600 hover:bg-slate-700 duration-700 font-semibold'><BsFillCheckCircleFill className='mr-2'/>GET IN TOUCH</button>
                             </Link>
                         </div>

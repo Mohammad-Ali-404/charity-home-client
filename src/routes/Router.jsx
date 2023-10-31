@@ -4,6 +4,7 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Causes from "../Pages/Causes/Causes";
 import Events from "../Pages/Events/Events";
+import Contact from "../Pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path:'events',
                 element:<Events/>
+            },
+            {
+                path:'contact',
+                element:<Contact/>
             }
         ]
     }
