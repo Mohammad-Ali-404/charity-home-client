@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "category": "Exclusive",
+      "title": "Major Celebrity Donates Millions to Local Charity",
+      "posted_time": "2 hours ago",
+      "reporter_name": "John Smith",
+      "news_topic": "Charity",
+      "date": "2023-11-01"
+    },
+    {
+      "id": 2,
+      "category": "Latest",
+      "title": "Innovative Fundraising Campaign for Disaster Relief",
+      "posted_time": "15 minutes ago",
+      "reporter_name": "Sarah Brown",
+      "news_topic": "Donation Purpose",
+      "image": "https://example.com/image1.jpg",
+      "date": "2023-11-01"
+    },
+    {
+      "id": 3,
+      "category": "Exclusive",
+      "title": "Behind the Scenes of a Secret Charity Gala Event",
+      "posted_time": "3 hours ago",
+      "reporter_name": "David Wilson",
+      "news_topic": "Charity",
+      "date": "2023-11-01"
+    },
+    {
+      "id": 4,
+      "category": "Latest",
+      "title": "Local Community's Extraordinary Charity Drive",
+      "posted_time": "20 minutes ago",
+      "reporter_name": "Emily Johnson",
+      "news_topic": "Charity",
+      "date": "2023-11-02"
+    },
+    {
+      "id": 5,
+      "category": "Exclusive",
+      "title": "Interview with a Philanthropist: Their Impactful Donations",
+      "posted_time": "4 hours ago",
+      "reporter_name": "Michael Davis",
+      "news_topic": "Donation Purpose",
+      "date": "2023-11-02"
+    },
+    {
+      "id": 6,
+      "category": "Latest",
+      "title": "Tech Company Launches Donation Matching Program",
+      "posted_time": "10 minutes ago",
+      "reporter_name": "Jessica Parker",
+      "news_topic": "Donation Purpose",
+      "image": "https://example.com/image2.jpg",
+      "date": "2023-11-03"
+    },
+    {
+      "id": 7,
+      "category": "Latest",
+      "title": "Tech Company Launches Donation Matching Program",
+      "posted_time": "15 minutes ago",
+      "reporter_name": "Peter Parker",
+      "news_topic": "Donation Purpose",
+      "image": "https://example.com/image2.jpg",
+      "date": "2023-11-03"
+    },
+    {
+      "id": 8,
+      "category": "Exclusive",
+      "title": "Inside Look at a High-Profile Celebrity Charity Auction",
+      "posted_time": "1 hour ago",
+      "reporter_name": "Thomas Anderson",
+      "news_topic": "Charity",
+      "date": "2023-11-03"
+    }
+  ]
+  

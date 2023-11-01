@@ -15,7 +15,7 @@ const Contact = () => {
             <div className='bg-slate-50'>
                 <section className="py-6 dark:text-gray-50">
                     <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 sm:grid-cols-2 sm:divide-x">
-                        <div className=" sm:py-10 py-7 sm:ml-0 ml-14 w-2/3 px-6 sm:px-6 bg-slate-200">
+                        <div className=" sm:py-10 py-7 sm:ml-0 ml-14 w-2/3 px-6 sm:px-6 bg-slate-200 rounded">
                             <div className='border-b-2 border-gray-500'>
                                 <h1 className='flex items-center text-2xl text-slate-600 font-bold'><GrLocation className='bg-red-500 rounded p-1 text-4xl mr-3'/>Visit Office</h1>
                                 <p className='py-4 text-base font-medium'>69 Andy Street, Madison
@@ -32,7 +32,7 @@ const Contact = () => {
                                 <a href="mailto:"> <h1 className='py-4 text-base font-medium'>jagowelfare@gmail.com <br /> jagosupport@org.com</h1></a>
                             </div>                            
                         </div>
-                        <form className="pt-16 space-y-6 sm:px-6 bg-zinc-100 sm:w-max px-6 ">
+                        <form className="pt-16 space-y-6 sm:px-6 bg-zinc-100 sm:w-max px-6 rounded">
                             <div className="sm:flex sm:space-x-6">
                                 <div className="sm:w-72">
                                 <label className="block py-2">
