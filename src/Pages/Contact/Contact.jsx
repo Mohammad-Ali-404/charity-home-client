@@ -29,7 +29,7 @@ const Contact = () => {
                             </div>                            
                             <div className='border-b-2 py-5 border-gray-500 hover:border-red-500 duration-500'>
                                 <h1 className='flex items-center text-2xl text-slate-600 font-bold'><GrMail className='bg-red-500 rounded p-1 text-4xl mr-3'/>Email</h1>
-                                <a href="mailto:"> <h1 className='py-4 text-base font-medium'>jagowelfare@gmail.com <br /> jagosupport@org.com</h1></a>
+                                <a href="mailto:"> <h1 className='py-4 text-base font-medium'>simplegiving@gmail.com <br /> jagosupport@org.com</h1></a>
                             </div>                            
                         </div>
                         <form className="pt-16 space-y-6 sm:px-6 bg-zinc-100 sm:w-max px-6 rounded">

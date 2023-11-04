@@ -12,7 +12,7 @@ const Footer = () => {
                         <Link to='/'><img src={logo} alt="" /></Link>
                         <p className='text-base text-slate-800'>Lorem ipsum dolor, sit amet consectetur <br/> adipisicing elit. Eum excepturi, expedita<br /> perspiciatis autem  sunt facer.</p>
                         <h1 className='text-lg'><span className='font-semibold'>Address:</span> 858 Walnutwood Ave. Webster, <br /> NY 14580</h1>
-                        <a href="mailto:"> <h1 className='text-lg'><span className='font-semibold'>Email:</span> jagowelfare@gmail.com</h1></a>
+                        <a href="mailto:"> <h1 className='text-lg'><span className='font-semibold'>Email:</span> simplegiving@gmail.com</h1></a>
                         <a href="tel:+"><h1 className='text-lg'><span className='font-semibold'>Phone:</span> +225 4455 6655</h1></a>
                     </aside> 
                     <nav>

@@ -17,7 +17,7 @@ const SingleTrendingCauses = ({ causes }) => {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-500 transition-opacity">
                     <div className="bg-gradient-to-b from-transparent to-black opacity-70 w-full h-full absolute"></div>
-                    <p className="text-white text-lg font-bold">Donate Now</p>
+                    <Link to='donation' className="text-white text-lg font-bold">Donate Now</Link>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@ const SingleTrendingCauses = ({ causes }) => {
                    <BsFillCalendarDateFill className='mr-2 bg-red-100 rounded-sm text-4xl p-2'/> <span> Date: <br /> {date}</span>
                 </span>
                 <span className='sm:pr-16 flex items-center py-1 text-sm font-semibold text-gray-700 mr-2'>
-                <Link className="flex place-items-center self-center px-2 py-3 sm:px-2 text-black font-semibold hover:text-white bg-white rounded-xl shadow hover:bg-[#e03c33] transition-colors duration-500 hover:border-[#e03c33] border-[#e03c33] border mr-4">Donate Now <BsArrowRight className='ml-2 text-lg'/></Link>
+                <Link to='donation' className="flex place-items-center self-center px-2 py-3 sm:px-2 text-black font-semibold hover:text-white bg-white rounded-xl shadow hover:bg-[#e03c33] transition-colors duration-500 hover:border-[#e03c33] border-[#e03c33] border mr-4">Donate Now <BsArrowRight className='ml-2 text-lg'/></Link>
                 </span>
             </div>
         </div>

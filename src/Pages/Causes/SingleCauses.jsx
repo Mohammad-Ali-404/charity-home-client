@@ -17,7 +17,7 @@ const SingleCauses = ({causes}) => {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-500 transition-opacity">
                     <div className="bg-gradient-to-b from-transparent to-black opacity-70 w-full h-full absolute"></div>
-                    <p className="text-white text-lg font-bold">Donate Now</p>
+                    <Link to='donation'><p className="text-white text-lg font-bold">Donate Now</p></Link>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@ const SingleCauses = ({causes}) => {
                     <BsFillPeopleFill className='mr-2 bg-red-100 rounded-sm text-4xl p-2'/> <span> Posted: <br /> Admin</span>
                 </span>
             </div>
-        </div>
+            </div>
         </div>
     );
 };
