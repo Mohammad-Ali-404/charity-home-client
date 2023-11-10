@@ -3,7 +3,7 @@ import { BsFillCalendarDateFill, BsFillPeopleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const SingleCauses = ({causes}) => {
-    const { image_url, title, short_description, category, date, donation_goal, donation_achived } = causes;
+    const {id, image_url, title, short_description, category, date, donation_goal, donation_achived } = causes;
     return (
         <div>
             <div className="sm:max-w-lg mx-auto bg-slate-50 rounded overflow-hidden shadow-2xl mb-4">
@@ -22,7 +22,7 @@ const SingleCauses = ({causes}) => {
             </div>
 
             <div className="px-6 py-4">
-                <Link><div className="font-bold text-lg w-full hover:text-red-600 duration-500 mb-2">{title}</div></Link>
+                <Link to={`/causesdetails/${id}`}><div className="font-bold text-lg w-full hover:text-red-600 duration-500 mb-2">{title}</div></Link>
                 <p className="text-gray-700 text-base w-9/12">{short_description}</p>
             </div>
             <div className='px-6 py-4 flex justify-between'>

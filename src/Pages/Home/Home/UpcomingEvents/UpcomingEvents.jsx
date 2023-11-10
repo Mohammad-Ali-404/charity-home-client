@@ -11,7 +11,7 @@ const UpcomingEvents = () => {
     const [SingleEvent, setSingleEvent] = useState([]);
 
     useEffect(() => {
-        fetch('EventJoin.json')
+        fetch('http://localhost:5000/event')
             .then(res => res.json())
             .then(data => setSingleEvent(data))
     }, []);
@@ -60,11 +60,11 @@ const UpcomingEvents = () => {
                                     </div>
                                 </div>
                             ))}
-                            <Link><button className="btn bg-red-500 mt-10 text-white hover:bg-slate-700 duration-500 w-full">Join Event</button></Link>
+                            <Link to='/contact'><button className="btn bg-red-500 mt-10 text-white hover:bg-slate-700 duration-500 w-full">Join Event</button></Link>
                         </div>
                     </div>
                     <div className='grid grid-cols-1 md:grid-rows-3 gap-6'>
-                        {SingleEvent.slice(0, 3).map((event) => (
+                        {SingleEvent.slice(1, 4).map((event) => (
                             <MoreEvent key={event.id} event={event} />
                         ))}
                     </div>

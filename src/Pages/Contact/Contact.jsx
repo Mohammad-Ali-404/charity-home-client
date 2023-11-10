@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import '../Home/Home.css'
 import { GrLocation, GrMail, GrPhone } from "react-icons/gr";
-import { Link } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 const Contact = () => {
+    const form = useRef();
+
+
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form.current);
+        const name = formData.get('user_name');
+        const email = formData.get('user_email');
+        const phone = formData.get('user_phone');
+        const subject = formData.get('user_subject');
+        const message = formData.get('message');
+    
+        // Perform basic form validation
+        if (!name || !email || !phone || !subject || !message) {
+            // If any field is empty, show an alert to the user
+            Swal.fire({
+                title: 'Please fill out all fields',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+        
+        emailjs.sendForm('service_3vpz6vf', 'template_ahdo24f', form.current, 'lJgtXu48Ko6X-1Djl')
+          .then((result) => {
+              console.log(result.text);
+              e.target.reset();
+              Swal.fire({
+                  title: 'Your message sent SuccessFul',
+                  width: 600,
+                  padding: '3em',
+                  color: '#F86D51',
+                  background: '#fff url(/images/trees.png)',
+                  backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                  `
+                })
+          }, (error) => {
+              console.log(error.text); 
+          });
+  
+      };
     return (
         <div >
             <PageTitle heading='Contact' subHeading='Contact'/>
@@ -29,16 +77,17 @@ const Contact = () => {
                             </div>                            
                             <div className='border-b-2 py-5 border-gray-500 hover:border-red-500 duration-500'>
                                 <h1 className='flex items-center text-2xl text-slate-600 font-bold'><GrMail className='bg-red-500 rounded p-1 text-4xl mr-3'/>Email</h1>
-                                <a href="mailto:"> <h1 className='py-4 text-base font-medium'>simplegiving@gmail.com <br /> jagosupport@org.com</h1></a>
+                                <a href="mailto:"> <h1 className='py-4 text-base font-medium'>simplegiving@gmail.com <br /> simplegivingsupport@org.com</h1></a>
                             </div>                            
                         </div>
-                        <form className="pt-16 space-y-6 sm:px-6 bg-zinc-100 sm:w-max px-6 rounded">
+                        <form className="pt-16 space-y-6 sm:px-6 bg-zinc-100 sm:w-max px-6 rounded" ref={form} onSubmit={sendEmail}>
                             <div className="sm:flex sm:space-x-6">
                                 <div className="sm:w-72">
                                 <label className="block py-2">
                                     <span className="py-1">Full name</span>
                                     <input
                                     type="text"
+                                    name='user_name'
                                     placeholder="Leroy Jenkins"
                                     className="block p-3 w-full sm:w-72 rounded-sm shadow-sm  focus:ring dark:bg-gray-800"
                                     />
@@ -49,6 +98,7 @@ const Contact = () => {
                                     <span className="py-1">Email address</span>
                                     <input
                                     type="email"
+                                    name='user_email'
                                     placeholder="leroy@jenkins.com"
                                     className="block p-3 w-full sm:w-72 rounded-sm shadow-sm focus:ring dark:bg-gray-800"
                                     />
@@ -61,6 +111,7 @@ const Contact = () => {
                                     <span className="py-1">Phone</span>
                                     <input
                                     type="text"
+                                    name='user_phone'
                                     placeholder="Phone"
                                     className="block p-3 w-full sm:w-72 rounded-sm shadow-sm focus:ring dark:bg-gray-800"
                                     />
@@ -71,6 +122,7 @@ const Contact = () => {
                                     <span className="py-1">Subject</span>
                                     <input
                                     type="text"
+                                    name='user_subject'
                                     placeholder="Subject"
                                     className="block p-3 w-full sm:w-72 rounded-sm shadow-sm  focus:ring dark-bg-gray-800"
                                     />
@@ -80,14 +132,13 @@ const Contact = () => {
                             <label className="block">
                                 <span className="py-1">Message</span>
                                 <textarea
+                                name='message'
                                 rows="3"
                                 className="block w-full rounded-sm focus:ring  dark:bg-gray-800"
                                 ></textarea>
                             </label>
                             <span className='flex justify-center pt-5 sm:pb-0 pb-5 text-sm font-semibold text-gray-700 '>
-                                <Link className=''>
-                                    <button type='submit' className='px-7 flex items-center py-3 rounded-xl text-white text-lg bg-red-600 hover:bg-slate-700 duration-700 font-semibold'><BsFillCheckCircleFill className='mr-2'/>Send Message</button>
-                                </Link>
+                                    <button type='submit' value='submit' className='px-7 flex items-center py-3 rounded-xl text-white text-lg bg-red-600 hover:bg-slate-700 duration-700 font-semibold'><BsFillCheckCircleFill className='mr-2'/>Send Message</button>
                             </span>
                         </form>
 

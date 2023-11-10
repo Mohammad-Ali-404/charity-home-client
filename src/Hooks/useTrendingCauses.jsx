@@ -4,7 +4,7 @@ const useTrendingCauses = () =>{
     const [trendingCauses, SetTrendingCauses] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('trendingCauses.json')
+        fetch('http://localhost:5000/causes')
         .then(res => res.json())
         .then(data => {
             SetTrendingCauses(data)

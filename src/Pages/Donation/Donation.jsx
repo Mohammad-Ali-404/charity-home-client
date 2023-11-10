@@ -24,7 +24,7 @@ const Donation = () => {
             </div>
             <Container>
                 <div className='sm:flex  row-auto'>
-                    <div className='sm:w-7/12 w-full'>
+                    <form className='sm:w-7/12 w-full'>
                         <div className='flex justify-between rounded shadow-2xl shadow-slate-400 text-2xl font-semibold px-2 py-10'>
                             <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12'>Enter your donation amount</h1>
                             <div className='flex items-center -mt-5'>
@@ -38,7 +38,7 @@ const Donation = () => {
                                 />
                             </div>
                         </div>
-                        <form className="card pt-16 w-full space-y-6 sm:px-14 mt-10 shadow-2xl shadow-slate-400 sm:w-[925px] px-6 rounded">
+                        <div className="card pt-16 w-full space-y-6 sm:px-14 mt-10 shadow-2xl shadow-slate-400 sm:w-[925px] px-6 rounded">
                         <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12 font-semibold'>Enter your Details</h1>
                             <div className="sm:flex sm:space-x-6 ">
                                 <div className="sm:w-96">
@@ -108,8 +108,8 @@ const Donation = () => {
                                 placeholder='Write Your comment'
                                 ></textarea>
                             </label>
-                        </form>
-                        <form className="card pt-16 w-full space-y-6 sm:px-14 mt-10 shadow-2xl shadow-slate-400 sm:w-[925px] px-6 rounded">
+                        </div>
+                        <div className="card pt-16 w-full space-y-6 sm:px-14 mt-10 shadow-2xl shadow-slate-400 sm:w-[925px] px-6 rounded">
                             <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12 font-semibold'>Enter your Bank Details</h1>
                             <div className='flex sm:gap-5 gap-2'>
                                 <Link><img src={image} alt="" /></Link>
@@ -157,13 +157,13 @@ const Donation = () => {
                                 </label>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         <span className='flex justify-start sm:pb-0 text-sm font-semibold text-gray-700 '>
                                 <Link className='py-10'>
                                     <button type='submit' className='px-7 flex items-center py-3 rounded-sm text-white text-lg bg-red-600 hover:bg-slate-700 duration-700 font-semibold'><BsFillCheckCircleFill className='mr-2'/>Donate Now</button>
                                 </Link>
                             </span>
-                    </div>
+                    </form>
                     <div className='sm:w-5/12 w-full'>
                         <div>
                             {trendingCauses.slice(0, 1).map((causes) => (
@@ -172,7 +172,7 @@ const Donation = () => {
                                     <div className="relative group">
                                         <img
                                             src={causes.image_url}
-                                            className="w-full h-52 object-cover transition-transform transform scale-105 group-hover:scale-110 duration-500"
+                                            className="w-full h-52 object-cover transition-transdiv transdiv scale-105 group-hover:scale-110 duration-500"
                                         />
                                         <div className="absolute top-0 left-0 m-2  bg-red-600 opacity-90 text-gray-100 rounded-tr rounded-bl p-2 text-sm font-semibold">
                                             {causes.category}

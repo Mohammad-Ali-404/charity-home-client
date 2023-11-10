@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "title": "Clean Water Initiative",
+      "short_description": "Provide clean and safe drinking water to communities in need.",
+      "description": "Clean Water Initiative aims to make a significant impact on communities facing water scarcity. With a goal of $15,000, we're striving to ensure access to clean and safe drinking water. Your support can transform lives, preventing waterborne diseases and providing a brighter future for those in need.",
+      "fact_title": "Water Scarcity Crisis",
+      "more_description": "The global water scarcity crisis is a pressing issue, affecting millions worldwide. Lack of clean water leads to illness and hampers economic opportunities. Our initiative is a lifeline for these communities, bringing hope and health.",
+      "donation_goal": "$15,000",
+      "image": "https://i.ibb.co/Kbsn7T6/1.jpg",
+      "additional_images": [
+        "https://i.ibb.co/xyz123/1-image2.jpg",
+        "https://i.ibb.co/abc456/1-image3.jpg"
+      ],
+      "donation_achieved": "$1500"
+    },
+    {
+      "id": 2,
+      "title": "Education for Underprivileged Children",
+      "short_description": "Support the education of underprivileged children for a brighter future.",
+      "description": "Education for Underprivileged Children is committed to breaking the cycle of poverty through quality education. With a goal of $12,000, we're providing access to knowledge and opportunities. Your contribution empowers the next generation for a brighter, more equitable future.",
+      "fact_title": "Education Disparity",
+      "more_description": "Educational disparities perpetuate social inequality. By supporting this initiative, you bridge the gap and offer a path to a better life for underserved children.",
+      "donation_goal": "$12,000",
+      "image": "https://i.ibb.co/rH1Ktgz/2.jpg",
+      "additional_images": [
+        "https://i.ibb.co/xyz123/2-image2.jpg",
+        "https://i.ibb.co/abc456/2-image3.jpg"
+      ],
+      "donation_achieved": "$1700"
+    },
+    {
+      "id": 3,
+      "title": "Hunger Relief Program",
+      "short_description": "Provide nutritious meals to families facing food insecurity.",
+      "description": "The Hunger Relief Program is on a mission to alleviate food insecurity in communities. With a goal of $20,000, we're providing nutritious meals to families in need. Your support ensures that no one goes to bed hungry, fostering well-being and hope.",
+      "fact_title": "Food Insecurity Crisis",
+      "more_description": "Food insecurity is a harsh reality for many families. Your contribution helps bring relief, ensuring that no one in our community struggles to put food on the table.",
+      "donation_goal": "$20,000",
+      "image": "https://i.ibb.co/vYh6HJJ/3.jpg",
+      "additional_images": [
+        "https://i.ibb.co/xyz123/3-image2.jpg",
+        "https://i.ibb.co/abc456/3-image3.jpg"
+      ],
+      "donation_achieved": "$2500"
+    },
+    {
+      "id": 4,
+      "title": "Environmental Conservation",
+      "short_description": "Support efforts to protect natural habitats and combat climate change.",
+      "description": "Environmental Conservation is dedicated to preserving our planet's natural beauty. With a goal of $25,000, we're actively combating climate change and protecting vital habitats. Your contribution safeguards the environment for future generations.",
+      "fact_title": "Climate Change Challenge",
+      "more_description": "Climate change threatens our planet. Join our initiative to make a real difference by preserving ecosystems and reducing our carbon footprint.",
+      "donation_goal": "$25,000",
+      "image": "https://i.ibb.co/tH4Jkq8/causes-4.png",
+      "additional_images": [
+        "https://i.ibb.co/xyz123/4-image2.jpg",
+        "https://i.ibb.co/abc456/4-image3.jpg"
+      ],
+      "donation_achieved": "$5000"
+    },
+    {
+      "id": 5,
+      "title": "Medical Aid for Vulnerable Populations",
+      "short_description": "Provide essential medical care to underserved communities.",
+      "description": "Medical Aid for Vulnerable Populations ensures access to crucial medical care for those in need. With a goal of $30,000, we're making a difference in the lives of underserved communities. Your support brings health and healing.",
+      "fact_title": "Healthcare Disparities",
+      "more_description": "Healthcare disparities persist in many regions. Your contribution aids in providing vital medical assistance to underserved populations, saving lives and improving well-being.",
+      "donation_goal": "$30,000",
+      "image": "https://i.ibb.co/YNxT3gt/causes-6.png",
+      "additional_images": [
+        "https://i.ibb.co/xyz123/5-image2.jpg",
+        "https://i.ibb.co/abc456/5-image3.jpg"
+      ],
+      "donation_achieved": "$10,000"
+    },
+    {
+      "id": 6,
+      "title": "Empowerment of Women and Girls",
+      "short_description": "Promote gender equality and empower women and girls.",
+      "description": "Empowerment of Women and Girls is committed to breaking gender barriers and promoting equality. With a goal of $8,000, we're empowering women and girls to reach their full potential. Your contribution is a step towards a more equitable world.",
+      "fact_title": "Gender Equality Challenge",
+      "more_description": "Gender inequality is a global challenge. Your support fosters empowerment, helping women and girls overcome obstacles and achieve their dreams.",
+      "donation_goal": "$8,000",
+      "image": "https://i.ibb.co/Gtv7yzm/causes-3.png",
+      "additional_images": [
+        "https://i.ibb.co/xyz123/6-image2.jpg",
+        "https://i.ibb.co/abc456/6-image3.jpg"
+      ],
+      "donation_achieved": "$1800"
+    }
+  ]
+  

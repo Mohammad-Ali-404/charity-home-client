@@ -6,6 +6,8 @@ import Causes from "../Pages/Causes/Causes";
 import Events from "../Pages/Events/Events";
 import Contact from "../Pages/Contact/Contact";
 import Donation from "../Pages/Donation/Donation";
+import CausesDetails from "../Pages/Causes/CausesDetails/CausesDetails";
+import AllNews from "../Pages/News/AllNews";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,11 @@ const router = createBrowserRouter([
                 element:<Causes/>
             },
             {
+                path:'/causesdetails/:id',
+                element:<CausesDetails/>,
+                loader: ({params}) =>fetch(`http://localhost:5000/causesdetails/${params.id}`)
+            },
+            {
                 path:'events',
                 element:<Events/>
             },
@@ -32,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path:'donation',
                 element:<Donation/>
+            },
+            {
+                path:'news',
+                element:<AllNews/>
             }
         ]
     }
