@@ -4,10 +4,14 @@ import PageTitle from '../Shared/PageTitle/PageTitle';
 import useTrendingCauses from '../../Hooks/useTrendingCauses';
 import SingleCauses from './SingleCauses';
 import '../Home/Home.css'
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const Causes = () => {
     const [trendingCauses] = useTrendingCauses();
     return (
         <div>
+            <HelmetProvider>
+                <Helmet><title>Simple Giving | Causes</title></Helmet>
+            </HelmetProvider>
             <PageTitle heading='Causes' subHeading='Causes'/>
             <Container>
                 <div className='text-center py-10'>

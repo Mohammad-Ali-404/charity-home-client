@@ -11,11 +11,16 @@ import { IoIosMailOpen } from 'react-icons/io';
 import { FaLocationDot } from 'react-icons/fa6';
 import { AiTwotoneTag } from 'react-icons/ai';
 import useTrendingCauses from '../../Hooks/useTrendingCauses';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Donation = () => {
     const [trendingCauses] = useTrendingCauses();
-    return (
+    return (            
         <div>
+            <HelmetProvider>
+                <Helmet><title>Simple Giving | Donation</title></Helmet>
+            </HelmetProvider>
+            <div>
             <PageTitle heading='Make a Donation' subHeading='Donation'/>
             <div className='text-center py-10'>
                 <h1 className='text-4xl text-red-500 font-semibold title '>Make a Donation</h1>
@@ -26,7 +31,7 @@ const Donation = () => {
                 <div className='sm:flex  row-auto'>
                     <form className='sm:w-7/12 w-full'>
                         <div className='flex justify-between rounded shadow-2xl shadow-slate-400 text-2xl font-semibold px-2 py-10'>
-                            <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12'>Enter your donation amount</h1>
+                            <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12 pl-5'>Enter your donation amount</h1>
                             <div className='flex items-center -mt-5'>
                                 <h1 className=''>$</h1>
                                 <input
@@ -240,6 +245,7 @@ const Donation = () => {
                     </div>
                 </div>
             </Container>
+        </div> 
         </div>
     );
 };

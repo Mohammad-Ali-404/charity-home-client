@@ -11,7 +11,7 @@ import News from './Home/News/News';
 
 const Home = () => {
     return (
-        <div>
+        <div className=''>
             <Banner/>
             <DonationCategory/>
             <HelpWithEducation/>

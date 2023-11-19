@@ -5,6 +5,8 @@ import { GrLocation, GrMail, GrPhone } from "react-icons/gr";
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 const Contact = () => {
     const form = useRef();
 
@@ -55,6 +57,9 @@ const Contact = () => {
       };
     return (
         <div >
+            <HelmetProvider>
+                <Helmet><title>Simple Giving | Contact</title></Helmet>
+            </HelmetProvider>
             <PageTitle heading='Contact' subHeading='Contact'/>
             <div className='text-center py-10'>
                 <h1 className='text-4xl text-red-500 font-semibold title '>Contact With Us</h1>
@@ -144,7 +149,9 @@ const Contact = () => {
 
                     </div>
                 </section>
+              
             </div>
+            
         </div>
     );
 };

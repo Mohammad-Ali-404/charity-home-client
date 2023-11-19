@@ -6,6 +6,9 @@ import { FcFaq } from "react-icons/fc";
 import { AiFillFacebook, AiFillLinkedin, AiFillTwitterSquare, AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 import Container from '../Container/Container';
 import Marquee from 'react-fast-marquee';
+import { AuthContext } from '../../../Providers/AuthProvider';
+import { useContext } from 'react';
+import ProfileDropdown from '../../../components/ProfileDropdown';
 const Navbar = () => {
     
     const navbar = 
@@ -16,7 +19,12 @@ const Navbar = () => {
             <Link to='events'><li><a>Events</a></li></Link>
             <Link to='contact'><li><a>Contact</a></li></Link>
         </>
-    
+            const { user } = useContext(AuthContext);
+            // const handleLogout = () => {
+            //   logOut()
+            //     .then()
+            //     .catch(error => console.log(error))
+            // }
     return (
             <header className="bg-slate-100">
                <Container>
@@ -55,9 +63,18 @@ const Navbar = () => {
                             {navbar}
                         </ul>
                     </div>
-                    <div className="navbar-end">
-                        <Link to='donation' className="self-center px-4 sm:px-8 text-black py-2 sm:py-3 font-semibold hover:text-white bg-white rounded-xl shadow hover:bg-[#e03c33] transition-colors duration-500 hover:border-[#e03c33] border-[#e03c33] border mr-4">Donate Now</Link>
-                    </div>
+                        <div className="navbar-end">
+                                {user ? (
+                                    <div>
+                                        <ProfileDropdown/>
+                                    </div>
+                                    ) : (
+                                        <div>
+                                            <Link to='donation' className="self-center px-2 sm:px-5 sm:text-base text-xs text-black py-2 sm:py-3 font-semibold hover:text-white bg-white sm:rounded-xl rounded-lg shadow hover:bg-[#e03c33] transition-colors duration-500 hover:border-[#e03c33] border-[#e03c33] border mr-4">Donate Now</Link>
+                                            
+                                        </div>
+                                )}
+                        </div>
                     </div>
                </Container>
             </header>

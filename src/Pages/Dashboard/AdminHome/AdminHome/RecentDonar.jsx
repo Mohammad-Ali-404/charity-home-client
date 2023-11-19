@@ -1,11 +1,11 @@
 import React from 'react';
-
-const Error = () => {
+// TODO
+const RecentDonar = () => {
     return (
         <div>
-            page not found
+            
         </div>
     );
 };
 
-export default Error;
+export default RecentDonar;
