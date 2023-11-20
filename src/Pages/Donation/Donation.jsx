@@ -61,6 +61,7 @@ const Donation = () => {
                                     type="email"
                                     placeholder="Enter Your last Name"
                                     className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 bg-red-50focus:ring dark:bg-gray-800"
+                                    required
                                     />
                                 </label>
                                 </div>

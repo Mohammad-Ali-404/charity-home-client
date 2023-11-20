@@ -21,11 +21,11 @@ const Profile = () => {
           <div className="bg-white dark:bg-gray-800 rounded-lg">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-4">
-                <img
-                  src={user?.image ? user?.image : 'canvas'}
+              <img
+                  src={user?.photoURL ? user?.photoURL : 'canvas'}
                   alt="Company Logo"
                   className="w-16 h-16 rounded-full object-cover border"
-                />
+              />
               </div>
               <div className="flex space-x-4">
                 <Link
@@ -57,7 +57,7 @@ const Profile = () => {
             <div className="mb-6 dark:text-gray-200">
               <h2>
                 <span className="text-lg font-semibold">Admin Name:</span>{" "}
-                {user?.name ? user?.name : "none"}
+                {user?.displayName ? user?.displayName : "none"}
               </h2>
             </div>
             <div>

@@ -9,10 +9,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Contact = () => {
     const form = useRef();
-
-
-
-    const sendEmail = (e) => {
+      const sendEmail = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(form.current);
@@ -21,8 +18,6 @@ const Contact = () => {
         const phone = formData.get('user_phone');
         const subject = formData.get('user_subject');
         const message = formData.get('message');
-    
-        // Perform basic form validation
         if (!name || !email || !phone || !subject || !message) {
             // If any field is empty, show an alert to the user
             Swal.fire({
@@ -32,29 +27,43 @@ const Contact = () => {
             });
             return;
         }
-        
         emailjs.sendForm('service_3vpz6vf', 'template_ahdo24f', form.current, 'lJgtXu48Ko6X-1Djl')
           .then((result) => {
               console.log(result.text);
               e.target.reset();
-              Swal.fire({
-                  title: 'Your message sent SuccessFul',
-                  width: 600,
-                  padding: '3em',
-                  color: '#F86D51',
-                  background: '#fff url(/images/trees.png)',
-                  backdrop: `
-                    rgba(0,0,123,0.4)
-                    url("/images/nyan-cat.gif")
-                    left top
-                    no-repeat
-                  `
-                })
           }, (error) => {
               console.log(error.text); 
           });
-  
-      };
+        try {
+            const response = await fetch('http://localhost:5000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    subject,
+                    message,
+                }),
+            });
+
+            if (response.ok) {
+                console.log('Message sent successfully');
+                e.target.reset();
+                Swal.fire({
+                    title: 'Your message sent successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                });
+            } else {
+                console.error('Failed to send message');
+            }
+        } catch (error) {
+            console.error('Error sending message', error);
+        }
+    };
     return (
         <div >
             <HelmetProvider>
