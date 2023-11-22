@@ -11,7 +11,7 @@ const Navbar = () => {
                 <div className="flex-1">
                     <Link className="text-xl"><img src={logo} alt="" /></Link>
                 </div>
-                <div className="flex-none">
+                <div className="flex-none z-10 inset-0">
                     <ProfileDropdown/>
                 </div>
             </div>

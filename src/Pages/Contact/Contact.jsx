@@ -27,6 +27,7 @@ const Contact = () => {
             });
             return;
         }
+        // sent all data on admin email 
         emailjs.sendForm('service_3vpz6vf', 'template_ahdo24f', form.current, 'lJgtXu48Ko6X-1Djl')
           .then((result) => {
               console.log(result.text);
@@ -34,6 +35,7 @@ const Contact = () => {
           }, (error) => {
               console.log(error.text); 
           });
+          // sent all data on admin server mongodb 
         try {
             const response = await fetch('http://localhost:5000/send-email', {
                 method: 'POST',
@@ -72,7 +74,7 @@ const Contact = () => {
             <PageTitle heading='Contact' subHeading='Contact'/>
             <div className='text-center py-10'>
                 <h1 className='text-4xl text-red-500 font-semibold title '>Contact With Us</h1>
-                <h1 className='text-4xl text-slate-800 font-semibold'>Get in <span className='bg-no-repeat' style={{backgroundImage: 'url(https://i.ibb.co/dWGJ3L2/yellow-banner.png)', backgroundSize: '100% 40%', backgroundPosition:'bottom', display: 'inline', lineHeight: '1', }}>touch</span>with us & stay updates</h1>
+                <h1 className='text-4xl text-slate-800 font-semibold'>Get in <span className='bg-no-repeat' style={{backgroundImage: 'url(https://i.ibb.co/dWGJ3L2/yellow-banner.png)', backgroundSize: '100% 40%', backgroundPosition:'bottom', display: 'inline', lineHeight: '1', }}>touch</span> with us & stay updates</h1>
             </div>
             <div className='bg-slate-50'>
                 <section className="py-6 dark:text-gray-50">

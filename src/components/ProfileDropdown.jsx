@@ -43,7 +43,7 @@ const ProfileDropdown = () => {
       <div
         onMouseEnter={toggleDropdown}
         onMouseLeave={toggleDropdown}
-        className="flex items-center border py-0 px-2 rounded-2xl gap-1 cursor-pointer hover:border-red-500 transition duration-100"
+        className="flex items-center border py-0 px-2 rounded-2xl gap-1 cursor-pointer hover:border-red-500  transition duration-100"
       >
         <FaAlignJustify className="text-xl" />
         <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -62,7 +62,7 @@ const ProfileDropdown = () => {
           onMouseLeave={closeDropdown}
           className="absolute top-full right-0 mt-2 dark:bg-gray-800 dark:text-gray-50 bg-white border border-gray-300 shadow-md rounded-md"
         >
-          <ul className="flex flex-col">
+          <ul className="flex flex-col ">
             <Link
               className="px-10 py-2 w-full dark:hover:bg-slate-600 hover:bg-gray-100 cursor-pointer flex items-center gap-2"
             >

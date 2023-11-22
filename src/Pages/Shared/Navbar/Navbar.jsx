@@ -65,7 +65,7 @@ const Navbar = () => {
                     </div>
                         <div className="navbar-end">
                                 {user ? (
-                                    <div>
+                                    <div className='z-10 inset-0'>
                                         <ProfileDropdown/>
                                     </div>
                                     ) : (

@@ -1,17 +1,14 @@
 import React from 'react';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import Container from '../Shared/Container/Container';
-import image from '../../assets/logo/master.png'
-import image2 from '../../assets/logo/paypal.png'
-import image3 from '../../assets/logo/skill.png'
-import image4 from '../../assets/logo/visa.png'
 import { Link } from 'react-router-dom';
-import { BsFillCalendar2DateFill, BsFillCheckCircleFill, BsTelephoneInbound } from 'react-icons/bs';
+import { BsFillCalendar2DateFill,  BsTelephoneInbound } from 'react-icons/bs';
 import { IoIosMailOpen } from 'react-icons/io';
 import { FaLocationDot } from 'react-icons/fa6';
 import { AiTwotoneTag } from 'react-icons/ai';
 import useTrendingCauses from '../../Hooks/useTrendingCauses';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Payment from '../../Payment/Payment';
 
 const Donation = () => {
     const [trendingCauses] = useTrendingCauses();
@@ -29,147 +26,7 @@ const Donation = () => {
             </div>
             <Container>
                 <div className='sm:flex  row-auto'>
-                    <form className='sm:w-7/12 w-full'>
-                        <div className='flex justify-between rounded shadow-2xl shadow-slate-400 text-2xl font-semibold px-2 py-10'>
-                            <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12 pl-5'>Enter your donation amount</h1>
-                            <div className='flex items-center -mt-5'>
-                                <h1 className=''>$</h1>
-                                <input
-                                    type="number"
-                                    id="donationAmount"
-                                    className="mt-1 p-2 sm:w-auto border-b-2 border-red-500 focus:border-b-2 hover:border-b-2 focus:outline-none  w-40"
-                                    // value={donationAmount}
-                                    // onChange={(e) => setDonationAmount(e.target.value)}
-                                />
-                            </div>
-                        </div>
-                        <div className="card pt-16 w-full space-y-6 sm:px-14 mt-10 shadow-2xl shadow-slate-400 sm:w-[925px] px-6 rounded">
-                        <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12 font-semibold'>Enter your Details</h1>
-                            <div className="sm:flex sm:space-x-6 ">
-                                <div className="sm:w-96">
-                                <label className="block py-2">
-                                    <input
-                                    type="text"
-                                    placeholder="Enter Your First Name"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm bg-red-50 focus:ring focus:border-red-400 dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                                <div className="sm:w-1/2">
-                                <label className="block py-2">
-                                    <input
-                                    type="email"
-                                    placeholder="Enter Your last Name"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 bg-red-50focus:ring dark:bg-gray-800"
-                                    required
-                                    />
-                                </label>
-                                </div>
-                            </div>
-                            <div className="sm:flex sm:space-x-6">
-                                <div className="sm:w-96">
-                                <label className="block py-2">
-                                    <input
-                                    type="text"
-                                    placeholder="Enter Your Email"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                                <div className="sm:w-1/2">
-                                <label className="block py-2">
-                                    <input
-                                    type="email"
-                                    placeholder="Enter Your Phone Number"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                            </div>
-                            <div className="sm:flex sm:space-x-6">
-                                <div className="sm:w-96">
-                                <label className="block py-2">
-                                    <input
-                                    type="text"
-                                    placeholder="Enter Your Address"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                                <div className="sm:w-1/2">
-                                <label className="block py-2">
-                                    <input
-                                    type="email"
-                                    placeholder="Enter Your Country"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                            </div>
-                            
-                            <label className="block pb-10">
-                                <textarea
-                                rows="6"
-                                className="block sm:w-[790px] w-full pt-4 pl-3 rounded-sm focus:border-red-500 border border-gray-300 font-normal bg-red-50 dark:bg-gray-800"
-                                placeholder='Write Your comment'
-                                ></textarea>
-                            </label>
-                        </div>
-                        <div className="card pt-16 w-full space-y-6 sm:px-14 mt-10 shadow-2xl shadow-slate-400 sm:w-[925px] px-6 rounded">
-                            <h1 className='sm:w-auto sm:text-2xl text-xl w-7/12 font-semibold'>Enter your Bank Details</h1>
-                            <div className='flex sm:gap-5 gap-2'>
-                                <Link><img src={image} alt="" /></Link>
-                                <Link><img src={image2} alt="" /></Link>
-                                <Link><img src={image3} alt="" /></Link>
-                                <Link><img src={image4} alt="" /></Link>
-                            </div>
-                            <div className="sm:flex sm:space-x-6 ">
-                                <div className="sm:w-96">
-                                <label className="block py-2">
-                                    <input
-                                    type="text"
-                                    placeholder="Account Holder Name"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm bg-red-50 focus:ring focus:border-red-400 dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                                <div className="sm:w-1/2">
-                                <label className="block py-2">
-                                    <input
-                                    type="name"
-                                    placeholder="Card Number"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 bg-red-50focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                            </div>
-                            <div className="sm:flex sm:space-x-6 pb-10">
-                                <div className="sm:w-96">
-                                <label className="block py-2">
-                                    <input
-                                    type="text"
-                                    placeholder="Expire Date"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                                <div className="sm:w-1/2">
-                                <label className="block py-2">
-                                    <input
-                                    type="TEXT"
-                                    placeholder="CVV"
-                                    className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    />
-                                </label>
-                                </div>
-                            </div>
-                        </div>
-                        <span className='flex justify-start sm:pb-0 text-sm font-semibold text-gray-700 '>
-                                <Link className='py-10'>
-                                    <button type='submit' className='px-7 flex items-center py-3 rounded-sm text-white text-lg bg-red-600 hover:bg-slate-700 duration-700 font-semibold'><BsFillCheckCircleFill className='mr-2'/>Donate Now</button>
-                                </Link>
-                            </span>
-                    </form>
+                    <Payment/>
                     <div className='sm:w-5/12 w-full'>
                         <div>
                             {trendingCauses.slice(0, 1).map((causes) => (

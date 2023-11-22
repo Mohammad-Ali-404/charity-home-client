@@ -16,7 +16,7 @@ const DonationOverview = () => {
     ];
 
     return (
-        <div className="mt-8 dark:bg-gray-800 dark:text-white bg-white rounded-lg p-8 shadow-sm">
+        <div className="mt-8 dark:bg-gray-800 dark:text-white bg-white sm:w-full w-[450px] rounded-lg p-8 shadow-sm">
             <h3 className="text-xl font-semibold mb-3">Total Donation Overview</h3>
             <div className="overflow-x-auto">
                 <LineChart
