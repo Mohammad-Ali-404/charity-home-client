@@ -6,9 +6,11 @@ import { BsFillCheckCircleFill } from 'react-icons/bs';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import useAxiosSecure from '../../Hooks/UseAxiosSecure';
 
 const Contact = () => {
     const form = useRef();
+    const [axiosSecure] = useAxiosSecure();
       const sendEmail = async (e) => {
         e.preventDefault();
 
@@ -36,35 +38,30 @@ const Contact = () => {
               console.log(error.text); 
           });
           // sent all data on admin server mongodb 
-        try {
-            const response = await fetch('http://localhost:5000/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    phone,
-                    subject,
-                    message,
-                }),
+          try {
+            const response = await axiosSecure.post(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/send-email`, {
+              name,
+              email,
+              phone,
+              subject,
+              message,
             });
-
-            if (response.ok) {
-                console.log('Message sent successfully');
-                e.target.reset();
-                Swal.fire({
-                    title: 'Your message sent successfully',
-                    icon: 'success',
-                    confirmButtonText: 'OK',
-                });
+      
+            if (response.status === 200) {
+              console.log('Message sent successfully');
+              e.target.reset();
+              Swal.fire({
+                title: 'Your message sent successfully',
+                icon: 'success',
+                confirmButtonText: 'OK',
+              });
             } else {
-                console.error('Failed to send message');
+              console.error('Failed to send message');
             }
-        } catch (error) {
+          } catch (error) {
             console.error('Error sending message', error);
-        }
+          }
+        
     };
     return (
         <div >

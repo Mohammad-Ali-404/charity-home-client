@@ -15,6 +15,10 @@ import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
 import ProfileEditForm from "../Pages/Dashboard/AdminProfile/AdminProfile/ProfileEditForm";
 import Donation from "../Pages/Donation/Donation";
+import PaymentHistory from "../Payment/PaymentHistory";
+import AppliedVolunter from "../Pages/Dashboard/AppliedVolunter/AppliedVolunter";
+import SocialMedia from "../Pages/Dashboard/SocialMedia/SocialMedia";
+import AddedCauses from "../Pages/Dashboard/AddCauses/AddedCauses";
 
 const router = createBrowserRouter([
     {
@@ -31,9 +35,9 @@ const router = createBrowserRouter([
                 element:<Causes/>
             },
             {
-                path:'/causesdetails/:_id',
-                element:<CausesDetails/>,
-                loader: ({params}) =>fetch(`http://localhost:5000/causesdetails/${params._id}`)
+                path: '/causesdetails/:title',
+                element: <CausesDetails />,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/causesdetails/${params.title}`)
             },
             {
                 path:'events',
@@ -77,6 +81,22 @@ const router = createBrowserRouter([
             {
                 path:"admin-profile-edit",
                 element:<ProfileEditForm/>
+            },
+            {
+                path:'admin-payment-history',
+                element:<PaymentHistory/>
+            },
+            {
+                path:'admin-applied-volunter',
+                element:<AppliedVolunter/>
+            },
+            {
+                path:'admin-added-causes',
+                element:<AddedCauses/>
+            },
+            {
+                path:'admin-social-media',
+                element:<SocialMedia/>
             }
         ]
     }

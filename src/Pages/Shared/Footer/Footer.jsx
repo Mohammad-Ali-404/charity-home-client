@@ -1,9 +1,31 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
 import Container from '../Container/Container';
 import logo from '../../../assets/logo/logo.png'
 import { Link } from 'react-router-dom';
 import { AiFillFacebook, AiFillLinkedin, AiFillTwitterSquare, AiOutlineInstagram } from "react-icons/ai";
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
+import useAxiosSecure from '../../../Hooks/UseAxiosSecure';
 const Footer = () => {
+  const [socialMedia, setSocialMedia] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null)
+  const [axiosSecure] = useAxiosSecure()
+  useEffect(() => {
+    const fetchSocialMedia = async () => {
+      try {
+        const response = await axiosSecure.get(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/social-media`);
+        setSocialMedia(response.data);
+      } catch (error) {
+        setError('Error fetching payment history');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSocialMedia();
+  }, [axiosSecure]);
     return (
         <div className='bg-base-200 text-base-content'>
             <Container>
@@ -42,11 +64,15 @@ const Footer = () => {
             </Container>
             <div className='flex p-5 justify-between bg-red-500 text-white w-full'>
                 <h1 className='sm:text-lg sm:px-12 pr-5 font-semibold'>Copyright © 2023 All Rights Reserved</h1>
-                <div className='flex gap-4 sm:text-2xl text-xl sm:px-48'>
-                    <Link><AiFillFacebook/></Link>
-                    <Link><AiFillTwitterSquare/></Link>
-                    <Link><AiOutlineInstagram/></Link>
-                    <Link><AiFillLinkedin/></Link>   
+                <div className=''>
+                  {socialMedia.map((media) => (
+                    <div key={media._id} className='flex gap-4 sm:text-2xl text-xl sm:px-48'>
+                      <Link target='_blank' to={media.facebook}><AiFillFacebook/></Link>
+                      <Link target='_blank' to={media.twitter}><AiFillTwitterSquare/></Link>
+                      <Link target='_blank' to={media.instagram}><AiOutlineInstagram/></Link>
+                      <Link target='_blank' to={media.linkedin}><AiFillLinkedin/></Link> 
+                    </div>  
+                    ))}
                 </div>
             </div>
         </div>

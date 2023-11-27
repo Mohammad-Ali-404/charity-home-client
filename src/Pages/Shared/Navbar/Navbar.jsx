@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import logo from '../../../assets/logo/logo.png'
 import { Link } from 'react-router-dom';
@@ -9,8 +10,29 @@ import Marquee from 'react-fast-marquee';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { useContext } from 'react';
 import ProfileDropdown from '../../../components/ProfileDropdown';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
+import useAxiosSecure from '../../../Hooks/UseAxiosSecure';
 const Navbar = () => {
-    
+    const [socialMedia, setSocialMedia] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null)
+    const [axiosSecure] = useAxiosSecure()
+    useEffect(() => {
+        const fetchSocialMedia = async () => {
+        try {
+            const response = await axiosSecure.get(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/social-media`);
+            setSocialMedia(response.data);
+        } catch (error) {
+            setError('Error fetching payment history');
+        } finally {
+            setLoading(false);
+        }
+        };
+
+        fetchSocialMedia();
+    }, [axiosSecure]);
     const navbar = 
         <>
             <Link to='/'><li><a>Home</a></li></Link>
@@ -39,12 +61,14 @@ const Navbar = () => {
                            <span className='bg-sky-400 text-white p-2 mr-4'>Promo</span> All information available in the news
                         </Marquee>
                     </div>
-                    <div className='flex gap-2 text-2xl mr-32 sm:justify-items-center'>
-                        <Link><AiFillFacebook className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
-                        <Link><AiFillTwitterSquare  className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
-                        <Link><AiOutlineInstagram  className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
-                        <Link><AiFillLinkedin  className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
+                    {socialMedia.map((media) => (
+                    <div key={media._id} className='flex gap-2 text-2xl mr-32 sm:justify-items-center'>
+                        <Link target='_blank' to={media.facebook}><AiFillFacebook className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
+                        <Link target='_blank' to={media.twitter}><AiFillTwitterSquare  className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
+                        <Link target='_blank' to={media.instagram}><AiOutlineInstagram  className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
+                        <Link  target='_blank' to={media.linkedin}><AiFillLinkedin  className=' hover:text-red-600 duration-300 rounded-xl'/></Link>
                     </div>
+                    ))}
                 </div>
                <div className="navbar  p-4">
                     <div className="navbar-start">

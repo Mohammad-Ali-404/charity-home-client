@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const MoreEvent = ({event}) => {
     const {time, date, title, description, location } = event;
-    console.log(event)
     return (
         <div>
             <div className="card  bg-base-100 w-full shadow-xl">

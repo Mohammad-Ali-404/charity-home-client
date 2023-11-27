@@ -9,7 +9,7 @@ const Navbar = () => {
             <Container>
             <div className="navbar  bg-base-100">
                 <div className="flex-1">
-                    <Link className="text-xl"><img src={logo} alt="" /></Link>
+                    <Link to='/' className="text-xl"><img src={logo} alt="" /></Link>
                 </div>
                 <div className="flex-none z-10 inset-0">
                     <ProfileDropdown/>

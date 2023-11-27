@@ -1,13 +1,36 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import DashboardTitle from '../../Shared/DashboardTitle';
+import useAxiosSecure from '../../../../Hooks/UseAxiosSecure';
 
 const ProfileEditForm = () => {
-    const {
+  const [axiosSecure] = useAxiosSecure();
+  const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const response = await axiosSecure.post(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/users-update`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log('Profile updated successfully!');
+        // Optionally, you can redirect the user or show a success message
+      } else {
+        console.error('Error updating profile');
+        // Handle error, show error message, etc.
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      // Handle error, show error message, etc.
+    }
+  };
   
     return (
         <div>
@@ -19,7 +42,7 @@ const ProfileEditForm = () => {
             />
             </div>
              <div className="mt-10">
-      <form onSubmit={handleSubmit()} className=' bg-white p-8 rounded-xl'>
+      <form onSubmit={handleSubmit(onSubmit)} className=' bg-white p-8 rounded-xl'>
         <div className="mb-4">
           <label htmlFor="image" className="block mb-1">
             Change Photo

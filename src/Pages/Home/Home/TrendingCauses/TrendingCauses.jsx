@@ -14,7 +14,7 @@ const TrendingCauses = () => {
                 </div>
                 <div className='grid grid-cols-1 gap-0 sm:grid-cols-3 mt-10 pb-12'> 
                 {trendingCauses.slice(0, 3).map((causes) => (
-                        <SingleTrendingCauses key={causes.id} causes={causes} />
+                        <SingleTrendingCauses key={causes._id} causes={causes} />
                     ))}
                 </div>
             </Container>

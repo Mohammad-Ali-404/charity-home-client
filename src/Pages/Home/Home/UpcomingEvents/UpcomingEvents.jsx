@@ -6,15 +6,24 @@ import { useState, useEffect } from 'react';
 import { FaClock, FaLocationDot } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import MoreEvent from './MoreEvent';
+import useAxiosSecure from '../../../../Hooks/UseAxiosSecure';
 
 const UpcomingEvents = () => {
     const [SingleEvent, setSingleEvent] = useState([]);
-
+    const [axiosSecure] = useAxiosSecure()
     useEffect(() => {
-        fetch('http://localhost:5000/event')
-            .then(res => res.json())
-            .then(data => setSingleEvent(data))
-    }, []);
+        const fetchData = async () => {
+          try {
+            const response = await axiosSecure.get(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/event`);
+            setSingleEvent(response.data);
+          } catch (error) {
+            console.error('Error fetching single event:', error);
+            // Handle error, show error message, etc.
+          }
+        };
+    
+        fetchData();
+      }, [axiosSecure]);
 
     return (
         <div className='py-10 bg-slate-50'>
@@ -65,7 +74,7 @@ const UpcomingEvents = () => {
                     </div>
                     <div className='grid grid-cols-1 md:grid-rows-3 gap-6'>
                         {SingleEvent.slice(1, 4).map((event) => (
-                            <MoreEvent key={event.id} event={event} />
+                            <MoreEvent key={event._id} event={event} />
                         ))}
                     </div>
                 </div>

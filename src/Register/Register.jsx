@@ -8,12 +8,12 @@ import { AuthContext } from '../Providers/AuthProvider';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
+import useAxiosSecure from '../Hooks/UseAxiosSecure';
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
+    const [axiosSecure] = useAxiosSecure()
     const onSubmit = data => {
-        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
@@ -21,8 +21,8 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const savedUser = {name: data.name, email: data.email}
-                        fetch('http://localhost:5000/users', {
-                            method:'POST',
+                        axiosSecure.post('http://localhost:5000/users', {
+                            
                             headers: {
                                 'content-type' : 'application/json'
                             },

@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
+import Swal from 'sweetalert2';
 const CheckoutFrom = () => {
     const stripe = useStripe();
     const elements = useElements();
@@ -22,14 +23,14 @@ const CheckoutFrom = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
+    const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
     const [country, setCountry] = useState('');
     const [feedback, setFeedback] = useState('');
 
     useEffect(() => {
         if (donationAmount >= 1) {
-            axiosSecure.post('http://localhost:5000/create-payment-intent', { donationAmount })
+            axiosSecure.post(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/create-payment-intent`, { donationAmount })
                 .then(res => {
                     console.log(res);
                     setClientSecret(res.data.clientSecret);
@@ -75,14 +76,10 @@ const CheckoutFrom = () => {
             payment_method: {
                 card: card,
                 billing_details: {
-                  name: `${firstName} ${lastName}` || 'Unknown',
+                  name: `${firstName} ${lastName}` ,
                   email: email || 'Unknown',
-                  phoneNumber: phoneNumber || 'unknown',
-                  address: {
-                    country: country || 'unknown',
-                    address: address || 'unknown',
-                  },
-                  feedback: feedback || ''
+                  phone: phone || 'unknown',
+                  
                 },
               },
           }
@@ -99,20 +96,22 @@ const CheckoutFrom = () => {
             setTransactionId(paymentIntent.id)
             const payment ={
                 transactionId: paymentIntent.id,
-                name: `${firstName} ${lastName}` || '',
+                name: `${firstName} ${lastName}` || 'anonymous',
                 donate: donationAmount,
                 email:email,
-                country: country || '',
-                address: address || '',
-                feedback: feedback || ''
+                phoneNumber: phone || 'anonymous',
+                date: new Date()
 
             }
             axiosSecure.post('/payments', payment)
             .then(res =>{
                 console.log(res.data);
                 if (res.data.insertedId) {
-                    
-                    // display confrim
+                    Swal.fire({
+                        title: 'Thank you for your donation',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                    });
                 }
             })
         }
@@ -177,11 +176,11 @@ const CheckoutFrom = () => {
                                 <div className="sm:w-1/2">
                                 <label className="block py-2">
                                     <input
-                                    type="number"
+                                    type="tel"
                                     placeholder="Enter Your Phone Number"
                                     className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 focus:ring dark:bg-gray-800"
-                                    value={phoneNumber}
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
                                     />
                                 </label>
                                 </div>
@@ -250,7 +249,6 @@ const CheckoutFrom = () => {
                                     <button type='submit' disabled={!stripe || !clientSecret || processing} className='px-7 flex items-center py-3 rounded-md  text-white text-lg bg-red-600 hover:bg-slate-700 duration-700 font-semibold'><BsFillCheckCircleFill className='mr-2'/>Donate Now</button>
                                 </div>
                             </div>
-                            {transactionId && <p className='text-green-500'>Transaction Complete with transactionId :{transactionId}</p>}
                         </div>
                     </div>
         </form>

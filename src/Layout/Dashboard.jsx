@@ -4,6 +4,7 @@ import { HiOutlineMenuAlt3, HiOutlineShare } from "react-icons/hi";
 import { BsSignpostSplit } from "react-icons/bs";
 import { RiImageEditFill } from "react-icons/ri";
 import { GiNewspaper } from "react-icons/gi";
+import { VscDiffAdded } from "react-icons/vsc";
 import { MdOutlineVolunteerActivism } from "react-icons/md";
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../Pages/Dashboard/Shared/DashboraNavbar';
@@ -46,19 +47,25 @@ const Dashboard = () => {
 						</Link>
 					</li>
 					<li className="rounded-sm">
-						<Link href="#" className="flex items-center p-2 space-x-3 rounded-md">
+						<Link to='admin-payment-history' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<AiOutlineMoneyCollect/>
 							<span className='sm:py-3 py-3 p px-3'>Payment History</span>
 						</Link>
 					</li>
 					<li className="rounded-sm">
-						<Link href="#" className="flex items-center p-2 space-x-3 rounded-md">
+						<Link to='admin-applied-volunter' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<MdOutlineVolunteerActivism/>
 							<span className='sm:py-3 py-3 p px-3'>Applied For Volunteer</span>
 						</Link>
 					</li>
 					<li className="rounded-sm">
-						<Link href="#" className="flex items-center p-2 space-x-3 rounded-md">
+						<Link to='admin-added-causes' href="#" className="flex items-center p-2 space-x-3 rounded-md">
+							<VscDiffAdded/>
+							<span className='sm:py-3 py-3 p px-3'>Added Causes</span>
+						</Link>
+					</li>
+					<li className="rounded-sm">
+						<Link  href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<RiImageEditFill/>
 							<span className='sm:py-3 py-3 p px-3'>Manage Causes</span>
 						</Link>
@@ -76,7 +83,7 @@ const Dashboard = () => {
 						</Link>
 					</li>
 					<li className="rounded-sm">
-						<Link href="#" className="flex items-center p-2 space-x-3 rounded-md">
+						<Link to='admin-social-media' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<HiOutlineShare/>
 							<span className='sm:py-3 py-3 p px-3'>Social Media</span>
 						</Link>

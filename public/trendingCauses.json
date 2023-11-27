@@ -1,6 +1,5 @@
  [
       {
-          "id": 1,
           "title": "Clean Water Initiative",
           "short_description": "Provide clean and safe drinking water to communities in need.",
           "category": "Food & Water",
@@ -10,7 +9,6 @@
           "donation_achived":"$1500"
       },
       {
-          "id": 2,
           "title": "Education for Underprivileged Children",
           "short_description": "Support the education of underprivileged children for a brighter future.",
           "category": "Education",
@@ -20,7 +18,6 @@
           "donation_achived":"$1700"
       },
       {
-          "id": 3,
           "title": "Hunger Relief Program",
           "short_description": "Provide nutritious meals to families facing food insecurity.",
           "category": "Home and Shelter",
@@ -30,7 +27,6 @@
           "donation_achived":"$2500"
       },
       {
-          "id": 4,
           "title": "Environmental Conservation",
           "short_description": "Support efforts to protect natural habitats and combat climate change.",
           "category": "Health and Treatment",
@@ -40,7 +36,6 @@
           "donation_achived":"$5000"
       },
       {
-          "id": 5,
           "title": "Medical Aid for Vulnerable Populations",
           "short_description": "Provide essential medical care to underserved communities.",
           "category": "Wildlife Conservation",
@@ -50,7 +45,6 @@
           "donation_achived":"$10,000"
       },
       {
-          "id": 6,
           "title": "Empowerment of Women and Girls",
           "short_description": "Promote gender equality and empower women and girls.",
           "category": "Another Category",
