@@ -13,6 +13,7 @@
     "@emailjs/browser": "^3.11.0",
     "@stripe/react-stripe-js": "^2.3.2",
     "@stripe/stripe-js": "^2.1.11",
+    "@tanstack/react-query": "^5.10.0",
     "axios": "^1.6.2",
     "firebase": "^10.5.2",
     "localforage": "^1.10.0",
@@ -26,6 +27,7 @@
     "react-hook-form": "^7.48.2",
     "react-icons": "^4.11.0",
     "react-preloaders": "^3.0.3",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.16.0",
     "react-spinners-css": "^2.0.1",
     "react-swiper": "^0.1.5",
@@ -33,7 +35,8 @@
     "recharts": "^2.9.3",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.9.0",
-    "swiper": "^10.3.1"
+    "swiper": "^10.3.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

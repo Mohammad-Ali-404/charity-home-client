@@ -19,6 +19,7 @@ import PaymentHistory from "../Payment/PaymentHistory";
 import AppliedVolunter from "../Pages/Dashboard/AppliedVolunter/AppliedVolunter";
 import SocialMedia from "../Pages/Dashboard/SocialMedia/SocialMedia";
 import AddedCauses from "../Pages/Dashboard/AddCauses/AddedCauses";
+import ManageCauses from "../Pages/Dashboard/ManageCauses/ManageCauses";
 
 const router = createBrowserRouter([
     {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
             {
                 path:'admin-added-causes',
                 element:<AddedCauses/>
+            },
+            {
+                path:'admin-manage-causes',
+                element:<ManageCauses/>
             },
             {
                 path:'admin-social-media',

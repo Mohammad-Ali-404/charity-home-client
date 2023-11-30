@@ -65,7 +65,7 @@ const Dashboard = () => {
 						</Link>
 					</li>
 					<li className="rounded-sm">
-						<Link  href="#" className="flex items-center p-2 space-x-3 rounded-md">
+						<Link to='admin-manage-causes' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<RiImageEditFill/>
 							<span className='sm:py-3 py-3 p px-3'>Manage Causes</span>
 						</Link>

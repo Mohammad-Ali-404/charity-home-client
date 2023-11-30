@@ -28,7 +28,7 @@ const AddedCauses = () => {
     return (
         <div>
             <div className='pt-10'>
-                <DashboardTitle title='Added Causes' subTitle="Added Create daily new causes"/>
+                <DashboardTitle title='Added Causes' subTitle="Added your daily new causes"/>
             </div>
             <div className='mt-10 bg-white p-8 rounded-xl'> 
             <form onSubmit={handleSubmit(onSubmit)} className=' bg-white p-8 rounded-xl'>
@@ -110,13 +110,13 @@ const AddedCauses = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="donation_achieved">Donation Achieved</label>
+            <label htmlFor="donation_achived">Donation Achieved</label>
             <input
               type="number"
-              id="donation_achieved"
-              name="donation_achieved"
+              id="donation_achived"
+              name="donation_achived"
               className="w-full px-5 py-4 bg-[#F1F5F9] rounded-md outline-none"
-              {...register("donation_achieved")}
+              {...register("donation_achived")}
             />
           </div>
         </div>
@@ -124,7 +124,7 @@ const AddedCauses = () => {
           className="bg-primary px-10 py-3 text-lg font-semibold rounded-md text-gray-50 mt-10"
           type="submit"
         >
-          Save Profile
+          Save Causes
         </button>
       </form>
             </div>

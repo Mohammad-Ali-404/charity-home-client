@@ -28,8 +28,8 @@ const SingleCauses = ({causes}) => {
             </div>
             <div className='px-6 py-4 flex justify-between'>
                 <div>
-                    <h1 className='font-bold text-lg'>Achived: {donation_achived}</h1>
-                    <h1 className='font-bold text-lg'>Target: {donation_goal}</h1>
+                    <h1 className='font-bold text-lg'>Achived: ${donation_achived}</h1>
+                    <h1 className='font-bold text-lg'>Target: ${donation_goal}</h1>
                 </div>
                 <div>
                     <h1 className='text-end text-4xl font-bold text-cyan-500'>0%</h1>

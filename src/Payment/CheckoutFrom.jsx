@@ -76,7 +76,7 @@ const CheckoutFrom = () => {
             payment_method: {
                 card: card,
                 billing_details: {
-                  name: `${firstName} ${lastName}` ,
+                  name: `${firstName} ${lastName}` || undefined,
                   email: email || 'Unknown',
                   phone: phone || 'unknown',
                   
@@ -96,7 +96,7 @@ const CheckoutFrom = () => {
             setTransactionId(paymentIntent.id)
             const payment ={
                 transactionId: paymentIntent.id,
-                name: `${firstName} ${lastName}` || 'anonymous',
+                name: `${firstName} ${lastName}` || undefined,
                 donate: donationAmount,
                 email:email,
                 phoneNumber: phone || 'anonymous',
@@ -143,7 +143,7 @@ const CheckoutFrom = () => {
                                     type="text"
                                     placeholder="Enter Your First Name"
                                     className="block p-3 w-full sm:w-96 rounded-sm shadow-sm bg-red-50 focus:ring focus:border-red-400 dark:bg-gray-800"
-                                    value={firstName}
+                                    value={firstName || undefined}
                                     onChange={(e) => setFirstName(e.target.value)}
                                     />
                                 </label>
@@ -154,7 +154,7 @@ const CheckoutFrom = () => {
                                     type="text"
                                     placeholder="Enter Your last Name"
                                     className="block p-3 w-full sm:w-96 rounded-sm shadow-sm  bg-red-50 bg-red-50focus:ring dark:bg-gray-800"
-                                    value={lastName}
+                                    value={lastName || undefined}
                                     onChange={(e) => setLastName(e.target.value)}
                                     />
                                 </label>

@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import Container from '../Shared/Container/Container';
 import { Link } from 'react-router-dom';
@@ -9,9 +10,23 @@ import { AiTwotoneTag } from 'react-icons/ai';
 import useTrendingCauses from '../../Hooks/useTrendingCauses';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Payment from '../../Payment/Payment';
+import useAxiosSecure from '../../Hooks/UseAxiosSecure';
 
 const Donation = () => {
     const [trendingCauses] = useTrendingCauses();
+    const [paymentHistory, setPaymentHistory] = useState([]);
+    const [axiosSecure] = useAxiosSecure() 
+    useEffect(() => {
+      const fetchPaymentHistory = async () => {
+          const response = await axiosSecure.get(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/payment-history`);
+          setPaymentHistory(response.data);
+      };
+      fetchPaymentHistory();
+    }, [axiosSecure]);
+    const donationsWithNames = paymentHistory.filter(
+        (payment) => payment.name !== undefined
+      );
+    
     return (            
         <div>
             <HelmetProvider>
@@ -66,7 +81,7 @@ const Donation = () => {
                             ))}
                         </div>
                         <div>
-                        <div className=" p-8 sm:flex gap-5 sm:max-w-lg mx-auto bg-slate-50 rounded-lg overflow-hidden shadow-2xl mb-4">
+                            <div className=" p-8 sm:flex gap-5 sm:max-w-lg mx-auto bg-slate-50 rounded-lg overflow-hidden shadow-2xl mb-4">
                                 <div className="flex-shrink-0 w-60 mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                                     <img src="https://source.unsplash.com/100x100/?portrait?1" alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />
                                 </div>
@@ -98,6 +113,29 @@ const Donation = () => {
                                         </span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="p-6 gap-5 sm:max-w-lg mx-auto bg-slate-50 rounded-lg overflow-hidden shadow-2xl mb-4">
+                                <h1 className='border-b-2 font-medium text-xl'>Recent Donation</h1>
+                                {donationsWithNames.length > 0 ? (
+                    // Render names and other details from the payment history
+                    <div>
+                      {donationsWithNames.map((donation, index) => (
+                        <div key={index} className='flex justify-between'>
+                          <div>
+                            <h1>{donation.name}</h1>
+                            <h1>{donation.date}</h1>
+                            {/* Display other details as needed */}
+                          </div>
+                          <div></div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // Show a message if there are no donations with names in the payment history
+                    <p>No recent donations with names.</p>
+                  )}
                             </div>
                         </div>
                     </div>

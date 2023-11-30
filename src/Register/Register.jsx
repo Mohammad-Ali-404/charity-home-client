@@ -5,7 +5,6 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageTitle from '../Pages/Shared/PageTitle/PageTitle';
 import { AuthContext } from '../Providers/AuthProvider';
-import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
