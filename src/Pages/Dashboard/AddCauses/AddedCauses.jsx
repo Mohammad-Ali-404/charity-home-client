@@ -1,27 +1,46 @@
 import React from 'react';
 import DashboardTitle from '../Shared/DashboardTitle';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import useAxiosSecure from '../../../Hooks/UseAxiosSecure';
+import Swal from 'sweetalert2';
 
 const AddedCauses = () => {
+  const [axiosSecure] = useAxiosSecure()
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = async (data) =>{
       try {
-        const response = await axios.post(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/causes`, data, {
+        const response = await axiosSecure.post(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/causes`, data, {
           headers: {
             'Content-Type': 'application/json',
           },
         });
       
         if (response.status === 200) {
-          console.log('Added new causes successfully!');
+          Swal.fire({
+            title: 'Success!',
+            text: 'Causes added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool',
+          });
           // Optionally, you can redirect the user or show a success message
         } else {
-          console.error('Error adding causes');
+          console.error('Error updating causes');
+          Swal.fire({
+            title: 'Error',
+            text: 'Failed to added Causes. Please try again.',
+            icon: 'error',
+            confirmButtonText: 'Okay',
+          });
           // Handle error, show error message, etc.
         }
       } catch (error) {
-        console.error('Error adding causes:', error);
+        console.error('Error updating causes:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Failed to added Causes. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'Okay',
+        });
         // Handle error, show error message, etc.
       }
     }
@@ -34,7 +53,7 @@ const AddedCauses = () => {
             <form onSubmit={handleSubmit(onSubmit)} className=' bg-white p-8 rounded-xl'>
         <div className="mb-4">
           <label htmlFor="image" className="block mb-1">
-            Change Photo
+            Added Photo
           </label>
           <input
             type="file"
@@ -54,9 +73,9 @@ const AddedCauses = () => {
             <span className="text-red-500">{errors?.image.message}</span>
           )}
         </div>
-        <div className="grid grid-cols-2 gap-10">
+        <div className="sm:grid sm:grid-cols-2 gap-10">
           <div className="mb-4">
-            <label htmlFor="Title">Title (Causes title and and causes details title are same)</label>
+            <label htmlFor="Title" className='sm:text-base text-sm'>Title (Causes title and and causes details title are same)</label>
             <input
               type="text"
               id="title"
@@ -67,7 +86,7 @@ const AddedCauses = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="short_description">Short Description</label>
+            <label htmlFor="short_description" className='sm:text-base text-sm'>Short Description</label>
             <input
                id="short_description"
                name="short_description"
@@ -77,7 +96,7 @@ const AddedCauses = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="Category">Category</label>
+            <label htmlFor="Category" className='sm:text-base text-sm'>Category</label>
             <input
                 type="text"
                 id="category"
@@ -88,7 +107,7 @@ const AddedCauses = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="name">Date</label>
+            <label htmlFor="name" className='sm:text-base text-sm'>Date</label>
             <input
               type="date"
               id="date"
@@ -100,7 +119,7 @@ const AddedCauses = () => {
         </div>
         <div className="grid grid-cols-2 gap-10">
           <div className="mb-4">
-            <label htmlFor="donation_goal">Gonation Goal</label>
+            <label htmlFor="donation_goal" className='sm:text-base text-sm'>Gonation Goal</label>
             <input
              type="number"
              id="donation_goal"
@@ -110,7 +129,7 @@ const AddedCauses = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="donation_achived">Donation Achieved</label>
+            <label htmlFor="donation_achived" className='sm:text-base text-sm'>Donation Achieved</label>
             <input
               type="number"
               id="donation_achived"
@@ -124,7 +143,7 @@ const AddedCauses = () => {
           className="bg-primary px-10 py-3 text-lg font-semibold rounded-md text-gray-50 mt-10"
           type="submit"
         >
-          Save Causes
+          Added Causes
         </button>
       </form>
             </div>

@@ -40,6 +40,8 @@ const Navbar = () => {
             <Link to='news'><li><a>News</a></li></Link>
             <Link to='events'><li><a>Events</a></li></Link>
             <Link to='contact'><li><a>Contact</a></li></Link>
+            <Link to='blog'><li><a>Blog</a></li></Link>
+            <Link to='team'><li><a>Our Team</a></li></Link>
         </>
             const { user } = useContext(AuthContext);
             // const handleLogout = () => {

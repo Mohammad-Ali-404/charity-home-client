@@ -6,6 +6,8 @@ import { RiImageEditFill } from "react-icons/ri";
 import { GiNewspaper } from "react-icons/gi";
 import { VscDiffAdded } from "react-icons/vsc";
 import { MdOutlineVolunteerActivism } from "react-icons/md";
+import { RiUserForbidLine } from "react-icons/ri";
+import { FaUserPlus } from "react-icons/fa";
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../Pages/Dashboard/Shared/DashboraNavbar';
 import { useContext } from 'react';
@@ -33,7 +35,7 @@ const Dashboard = () => {
 			</div>
 			<div className="drawer-side">
 			<label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label> 
-			<ul className="menu p-5 w-80 min-h-full bg-base-200 text-base-content text-xl">
+			<ul className="menu p-5 w-80 min-h-full bg-base-200 text-base-content text-lg">
 					<li className="rounded-sm">
 						<Link to='/dashboard/admin-home' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<AiOutlineHome/>
@@ -59,6 +61,18 @@ const Dashboard = () => {
 						</Link>
 					</li>
 					<li className="rounded-sm">
+						<Link to='admin-added-volunter' href="#" className="flex items-center p-2 space-x-3 rounded-md">
+							<FaUserPlus/>
+							<span className='sm:py-3 py-3 p px-3'>Added New Volunteer</span>
+						</Link>
+					</li>
+					<li className="rounded-sm">
+						<Link to='admin-manage-volunter' href="#" className="flex items-center p-2 space-x-3 rounded-md">
+							<RiUserForbidLine/>
+							<span className='sm:py-3 py-3 p px-3'>Manage Volunteer</span>
+						</Link>
+					</li>
+					<li className="rounded-sm">
 						<Link to='admin-added-causes' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<VscDiffAdded/>
 							<span className='sm:py-3 py-3 p px-3'>Added Causes</span>
@@ -71,15 +85,27 @@ const Dashboard = () => {
 						</Link>
 					</li>
 					<li className="rounded-sm">
-						<Link href="#" className="flex items-center p-2 space-x-3 rounded-md">
+						<Link to='admin-addes-news' href="#" className="flex items-center p-2 space-x-3 rounded-md">
+							<VscDiffAdded/>
+							<span className='sm:py-3 py-3 p px-3'>Added News</span>
+						</Link>
+					</li>
+					<li className="rounded-sm">
+						<Link to='admin-manage-news' href="#" className="flex items-center p-2 space-x-3 rounded-md">
 							<GiNewspaper/>
-							<span className='sm:py-3 py-3 p px-3'>Update News</span>
+							<span className='sm:py-3 py-3 p px-3'>Manage News</span>
 						</Link>
 					</li>
 					<li className="rounded-sm dark:bg-gray-800 dark:text-gray-50">
-						<Link href="#" className="flex items-center p-2 space-x-3 rounded-md">
-							<BsSignpostSplit/>
+						<Link to="admin-post-blog" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+							<VscDiffAdded/>
 							<span className='sm:py-3 py-3 p px-3'>Post A New Blog</span>
+						</Link>
+					</li>
+					<li className="rounded-sm dark:bg-gray-800 dark:text-gray-50">
+						<Link to="admin-manage-blog" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+							<BsSignpostSplit/>
+							<span className='sm:py-3 py-3 p px-3'>Manage Blog</span>
 						</Link>
 					</li>
 					<li className="rounded-sm">

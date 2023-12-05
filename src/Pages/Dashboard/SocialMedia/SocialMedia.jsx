@@ -13,7 +13,7 @@ const SocialMedia = () => {
             <div className="dark:bg-gray-800  bg-white ">
                 <div className="p-10">
                     <h2 className="text-lg font-semibold dark:text-white text-gray-600 mb-10">
-                        Post blog
+                        Post Social Media
                     </h2>
                     <div>
                         <div className="dark:bg-gray-800 dark:text-white grid gap-5 lg:flex items-center lg:gap-20">

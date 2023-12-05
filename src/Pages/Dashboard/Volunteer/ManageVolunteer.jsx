@@ -1,30 +1,29 @@
 import React from 'react';
-import DashboardTitle from '../Shared/DashboardTitle';
+import { useState } from 'react';
+import useAxiosSecure from '../../../Hooks/UseAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 import { FaRegEdit } from "react-icons/fa";
 import { GoTrash } from "react-icons/go";
-import { useState } from 'react';
+import DashboardTitle from '../Shared/DashboardTitle';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../../Hooks/UseAxiosSecure';
-import UpdateCausesModal from './UpdateCausesModal';
-import { useQuery } from '@tanstack/react-query';
+import UpdateVolunteerProfile from './UpdateVolunteerProfile/UpdateVolunteerModal';
 
-const ManageCauses = () => {
-    const [isUpdateCausesModalOpen, setIsUpdateCausesModalOpen] = useState(false);
-    const [CausesId, setCausesId] = useState("");
-    const [singleCausesData, setSingleCausesData] = useState(null);
+const ManageVolunteer = () => {
+    const [isUpdateVolunteerModalOpen, setIsUpdatVolunteerModalOpen] = useState(false);
+    const [volunteerId, setVolunteerId] = useState("")
+    const [singleVolunteerData, setSingleVolunteerData] = useState([])
     const [axiosSecure] = useAxiosSecure()
-
-    const { data: allCausesData = [], refetch } = useQuery({
-        queryKey: ["allCausesData"],
+    const { data: allVolunteerData = [], refetch } = useQuery({
+        queryKey: ["allVolunteerData"],
         queryFn: async () => {
           const response = await axiosSecure.get(
-            `${import.meta.env.VITE_VITE_SERVER_BASE_URL}/causes`
+            `${import.meta.env.VITE_VITE_SERVER_BASE_URL}/volunteer`
           );
           return response.data;
         },
       });
-      console.log("allCausesData", allCausesData);
-    const handleDeleteBlog = (causesData) => {
+      console.log("allVolunteerData", allVolunteerData);
+      const handleDeleteVolunteer = (volunteerData) => {
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -36,11 +35,11 @@ const ManageCauses = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             axiosSecure
-              .delete(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/causes/${causesData._id}`)
+              .delete(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/volunteer/${volunteerData._id}`)
               .then((res) => {
                 if (res?.data?.acknowledged) {
                   refetch();
-                  Swal.fire("Deleted!", "Blog has been deleted.", "success");
+                  Swal.fire("Deleted!", "Volunteer has been deleted.", "success");
                 }
               })
               .catch((error) => {
@@ -51,8 +50,9 @@ const ManageCauses = () => {
       };
     return (
         <div>
+             <div>
             <div className='pt-10'>
-                <DashboardTitle title='Added Causes' subTitle="Added Create daily new causes"/>
+                <DashboardTitle title='Manage Volunteer' subTitle="Added Create daily new causes"/>
             </div>
             <div className='bg-white p-8 rounded-xl mt-10'>
             <div className="bg-white shadow-md p-4 md:p-8 mx-2 md:mx-10 rounded-2xl">
@@ -75,27 +75,27 @@ const ManageCauses = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {allCausesData.map((causesData) => (
+                {allVolunteerData.map((volunteerData) => (
                   <>
-                    <tr key={causesData._id}>
+                    <tr key={volunteerData._id}>
                       <td className="py-2 md:py-4">
                         <img
-                          src={causesData.image}
+                          src={volunteerData.image}
                           alt="causes"
                           className="w-12 h-12 md:w-14 md:h-14 rounded-xl mr-3 md:mr-4"
                         />
                       </td>
                       <td className="py-2 xl:text-lg md:text-sm text-xs md:py-4 w-40 md:w-full">
-                        {causesData.title}
+                        {volunteerData.title}
                       </td>
                       <td className="py-2 md:py-4">
                         <div className="bg-gray-100 p-1 ms-3 md:p-2 rounded-lg">
                           <FaRegEdit
                             onClick={() => {
-                              setIsUpdateCausesModalOpen(true);
-                              setCausesId(causesData?._id);
-                              setSingleCausesData(causesData);
-                              console.log("manage causes", causesData?._id);
+                              setIsUpdatVolunteerModalOpen(true);
+                              setVolunteerId(volunteerData?._id);
+                              setSingleVolunteerData(volunteerData);
+                              console.log("manage volunteer", volunteerData?._id);
                             }}
                             className="w-3 h-3 md:w-4 md:h-4 cursor-pointer text-blue-600"
                           />
@@ -105,7 +105,7 @@ const ManageCauses = () => {
                         <div className="bg-gray-100 p-1 ms-3 md:p-2 rounded-lg">
                           <GoTrash
                             onClick={() => {
-                              handleDeleteBlog(causesData);
+                              handleDeleteVolunteer(volunteerData);
                             }}
                             className="w-3 h-3 md:w-4 md:h-4 cursor-pointer text-red-500"
                           />
@@ -118,16 +118,17 @@ const ManageCauses = () => {
             </table>
           </div>
         </div>
-                {isUpdateCausesModalOpen && (
-                <UpdateCausesModal
-                key={CausesId._id}
-                singleCausesData={singleCausesData}
-                setIsUpdateCausesModalOpen={setIsUpdateCausesModalOpen}
+                {isUpdateVolunteerModalOpen && (
+                <UpdateVolunteerProfile
+                key={volunteerId._id}
+                singleVolunteerData={singleVolunteerData}
+                setIsUpdatVolunteerModalOpen={setIsUpdatVolunteerModalOpen}
                 />
             )}
+        </div>
         </div>
         </div>
     );
 };
 
-export default ManageCauses;
+export default ManageVolunteer;

@@ -2,35 +2,43 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import DashboardTitle from '../../Shared/DashboardTitle';
 import useAxiosSecure from '../../../../Hooks/UseAxiosSecure';
-
+import Swal from 'sweetalert2';
+const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+// todo
 const ProfileEditForm = () => {
   const [axiosSecure] = useAxiosSecure();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = async (data) => {
-    try {
-      const response = await axiosSecure.post(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/users-update`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        console.log('Profile updated successfully!');
-        // Optionally, you can redirect the user or show a success message
-      } else {
-        console.error('Error updating profile');
-        // Handle error, show error message, etc.
-      }
-    } catch (error) {
-      console.error('Error updating profile:', error);
-      // Handle error, show error message, etc.
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+  const onSubmit = async (data) =>{
+  const formData = new FormData()
+  formData.append('image', data.image[0])
+  fetch(img_hosting_url, {
+    method:'POST',
+    body:formData
+  })
+  .then(res => res.json())
+  .then(imgRes =>{
+    if (imgRes.success) {
+      const imgURL = imgRes.data.display_url;
+      const {name, title, details, facebook, twitter, instagram, linkedin} = data;
+      const volunteerData = {name, title, details, facebook, twitter, instagram, linkedin, image:imgURL}
+      axiosSecure.put(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/users/${data._id}`, volunteerData)
+      .then(data=>{
+        if (data.data.insertedId) {
+            reset();
+        }
+      })
+      .finally(() => {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Profile Update Successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+        });
+      })
     }
-  };
+  })
+  }
   
     return (
         <div>
@@ -57,9 +65,8 @@ const ProfileEditForm = () => {
                 file:bg-gray-200 file:text-gray-700 dark:file:bg-gray-700 dark:file:text-gray-200
                 hover:file:bg-gray-100
               "
-            {...register("image", {
-              required: "Please upload an image",
-            })}
+            {...register("image")}
+            required
           />
           {errors?.image && (
             <span className="text-red-500">{errors?.image.message}</span>

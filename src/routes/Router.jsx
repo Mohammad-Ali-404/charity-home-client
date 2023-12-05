@@ -19,7 +19,13 @@ import PaymentHistory from "../Payment/PaymentHistory";
 import AppliedVolunter from "../Pages/Dashboard/AppliedVolunter/AppliedVolunter";
 import SocialMedia from "../Pages/Dashboard/SocialMedia/SocialMedia";
 import AddedCauses from "../Pages/Dashboard/AddCauses/AddedCauses";
-import ManageCauses from "../Pages/Dashboard/ManageCauses/ManageCauses";
+import BlogPost from "../Pages/Dashboard/BlogPost/BlogPost";
+import ManageBlog from "../Pages/Dashboard/BlogPost/ManageBlog/ManageBlog";
+import ManageCauses from "../Pages/Dashboard/AddCauses/ManageCauses/ManageCauses";
+import Blog from "../Pages/Blog/Blog";
+import AddedVolunteer from "../Pages/Dashboard/Volunteer/AddedVolunteer";
+import Team from "../Pages/Team/Team";
+import ManageVolunteer from "../Pages/Dashboard/Volunteer/ManageVolunteer";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +57,14 @@ const router = createBrowserRouter([
             {
                 path:'donation',
                 element:<Donation/>
+            },
+            {
+                path:"blog",
+                element:<Blog/>
+            },
+            {
+                path:"team",
+                element:<Team/>
             },
             {
                 path:'news',
@@ -92,12 +106,28 @@ const router = createBrowserRouter([
                 element:<AppliedVolunter/>
             },
             {
+                path:'admin-added-volunter',
+                element:<AddedVolunteer/>
+            },
+            {
+                path:'admin-manage-volunter',
+                element:<ManageVolunteer/>
+            },
+            {
                 path:'admin-added-causes',
                 element:<AddedCauses/>
             },
             {
                 path:'admin-manage-causes',
                 element:<ManageCauses/>
+            },
+            {
+                path:'admin-post-blog',
+                element:<BlogPost/>
+            },
+            {
+                path:'admin-manage-blog',
+                element:<ManageBlog/>
             },
             {
                 path:'admin-social-media',

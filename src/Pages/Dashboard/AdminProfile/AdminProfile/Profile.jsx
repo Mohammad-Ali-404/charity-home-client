@@ -1,19 +1,36 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { AuthContext } from '../../../../Providers/AuthProvider';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa6';
-
+import { useState } from 'react';
+import { useEffect } from 'react';
+import useAxiosSecure from '../../../../Hooks/UseAxiosSecure';
+// TODO
 const Profile = () => {
     const { user } = useContext(AuthContext);
+    const [additionalUserData, setAdditionalUserData] = useState(null);
+    const [axiosSecure] = useAxiosSecure()
+    useEffect(() => {
+        const fetchAdditionalUserData = async () => {
+            try {
+                const response = await axiosSecure.get(`${import.meta.env.VITE_VITE_SERVER_BASE_URL}/users`); // replace with your actual API endpoint
+                setAdditionalUserData(response.data);
+            } catch (error) {
+                console.error('Error fetching additional user data:', error);
+            }
+        };
 
+        fetchAdditionalUserData();
+    }, [axiosSecure]);
     return (
         <div>
             <div className="min-h-screen p-6">
       
       <div className="bg-white dark:bg-gray-800 min-h-screen">
         <div className="p-10">
-          <Link to={"/dashboard/admin-profile-edit"} className="mb-5 flex justify-end">
+          <Link  to={"/dashboard/admin-profile-edit"} className="mb-5 flex justify-end">
             <button className="bg-primary px-10 py-2 rounded-md text-gray-200 hover:bg-hover">
               Edit
             </button>
